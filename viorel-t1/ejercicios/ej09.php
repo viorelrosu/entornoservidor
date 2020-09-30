@@ -8,10 +8,10 @@ $texto = '';
 echo "Introduce formato: ";
 fscanf ( STDIN, "%s\n", $texto );
 
-
-$romano = ['i','ii','iii','iv', 'v', 'vi','vii','viii','ix','x'];
-$nombre = ['uno', 'dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];
-$datos = [ 'romano' => $romano, 'nombre'=>$nombre];
+$datos = [ 
+    'romano' => ['i','ii','iii','iv', 'v', 'vi','vii','viii','ix','x'], 
+    'nombre'=> ['uno', 'dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez']
+];
 
 for($i=0; $i<$n; $i++){
     echo $datos[$texto][$i]." ";
