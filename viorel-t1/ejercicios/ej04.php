@@ -1,18 +1,20 @@
 <?php
-$n=0;
+$n=0; $s=0;
 echo "Introduce n: ";
 fscanf ( STDIN, "%d\n", $n );
-
-$i = 0;
+$a=[];
 
 while ( $n != 0 ) {
-    $a[$i] = $n;
-    $i++;
+    
     echo "Introduce n: ";
     fscanf ( STDIN, "%d\n", $n );
+    
+    if($n!=0){
+        array_push($a, $n);
+    }
 }
 
-echo "Introduce operaciÃ³n: Sumar/Multiplicar ";
+echo "Introduce operación: Sumar/Multiplicar ";
 fscanf ( STDIN, "%s\n", $s );
 
 switch($s){
@@ -38,17 +40,17 @@ function mostrarOperacion($array, $operacion) {
             }
             
         };
-        echo "La suma de los nÃºmeros $numeros es: " . $res;
+        echo "La suma de los números $numeros es: " . $res;
     } else {
         foreach($array as $key=>$v) {
             $res *= $v;
             if($key == array_key_last($array)){
                 $numeros .= "($v)";
             } else {
-                $numeros .= "($v) X";
+                $numeros .= "($v) X ";
             }
         };
-        echo "La multiplicaciÃ³n de los nÃºmeros $numeros es: " . $res;
+        echo "La multiplicación de los números $numeros es: " . $res;
     }
    
 }
