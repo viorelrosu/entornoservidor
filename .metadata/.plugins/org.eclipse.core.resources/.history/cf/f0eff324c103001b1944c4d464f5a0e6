@@ -1,0 +1,23 @@
+<?php
+/*$max=0;
+$min=0;
+do{
+    echo "\nIntroduce n: ";
+    fscanf(STDIN, "%d\n", $i);
+    if($i<$min){
+        $min=$i;
+    }
+    if($i>$max){
+        $max=$i;
+    }
+}while($i!=0);
+echo "\nMaximo: $max";
+echo "\nMinimo: $min";
+*/
+$datos = [ '1'=>10, 'a'=> 20, 76=>30];
+
+echo in_array(10, $datos) ? 'SI\n':'NO\n';
+$claves = array_keys($datos);
+
+print_r($claves);
+?>

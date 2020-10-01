@@ -13,4 +13,5 @@ do{
 }while($i!=0);
 echo "\nMaximo: $max";
 echo "\nMinimo: $min";
+
 ?>
