@@ -1,0 +1,7 @@
+<?php
+$actual = time();
+
+echo date("H:i", $actual);
+echo "\n";
+echo date("d M Y H:i", $actual);
+echo strtotime("2014/10/04");

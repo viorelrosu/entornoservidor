@@ -1,0 +1,153 @@
+<?php
+
+$isEnd = false;
+$isMenu = 0;
+$isSubmenu = 0;
+
+function getMenuPrincipal(){
+    
+    $menus = [
+        1 => 'Mostrar departamentos',
+        2 => 'Mostrar departamento por id',
+        3 => 'Dar de alta departamento',
+        4 => 'Editar departamento',
+        5 => 'Dar de baja departamento'
+    ];
+    
+    echo <<<MENU
+    Menu: Elige una opción (1-5)
+    =====
+    1. Departamentos
+    2. Empleados
+    3. Fin del programa
+    
+    MENU;
+    foreach($menus as $clave => $menu) {
+        //echo $clave . ". " . $menu."\n";
+    }
+}
+
+function mostrarMensajeErroOpcion(){
+    echo "=====\n";
+    echo "La opción $opcion no es válida. \nPor favor, elige una opción entre 1 y 5. \n\n";
+}
+
+$bd=[
+    'departamentos' => [
+        10 => [ 
+            'nombre' => 'Ventas',
+            'descripcion' => 'Dpto. de Ventas'
+        ],
+    ],
+    'empleados' => [
+        100 => [
+            'idDpt' => 10,
+            'nombre' => 'Pepe',
+            'apellido' => 'Sánchez',
+        ],
+        200 => [
+            'idDpt' => 10,
+            'nombre' => 'Ana',
+            'apellido' => 'Garcia'
+        ]
+    ]
+];
+
+while(!$isEnd) {
+    switch($isMenu) {
+        case 0:
+            getMenuPrincipal();
+            fscanf(STDIN, "%d\n", $isMenu);
+            break;
+        case 1:
+            getMenuDepartamentos();
+            fscanf(STDIN, "%d\n", $isSubmenu);
+            $isMenu = 1;
+            switch($isSubmenu){
+                case 1:
+                    //mostrar departamentos
+                    mostrarDepartamentos();
+                    break;
+                case 2:
+                    //mostrar departamento by id
+                    mostrarDepartamentoById();
+                    break;
+                case 3:
+                    //alta departamento
+                    altaDepartamento();
+                    break;
+                case 4:
+                    //edit departamento
+                    editDepartamento();
+                    break;
+                case 5:
+                    //delete departamento
+                    delDepartamento();
+                    break;
+                case 6:
+                    //reset
+                    $isMenu=0;
+                    break;
+                default:
+                    //reset
+                    $isMenu=0;
+                    break;
+            }
+            break;
+        case 2:
+            getMenuEmpleados();
+            fscanf(STDIN, "%d\n", $isSubmenu);
+            $isMenu = 2;
+            switch($isSubmenu){
+                case 1:
+                    //mostrar empleados
+                    mostrarEmpleados();
+                    break;
+                case 2:
+                    //mostar empleado by id
+                    mostrarEmpleadoById();
+                    break;
+                case 3:
+                    //alta empleado
+                    altaEmpleado();
+                    break;
+                case 4:
+                    //edit empleado
+                    editEmpleado();
+                    break;
+                case 5:
+                    //delete empleado
+                    delEmpleado();
+                    break;
+                case 6:
+                    //reset
+                    $isMenu = 0;
+                    break;
+                default:
+                    //reset
+                    $isMenu = 0;
+                    break;
+            }
+            break;
+        case 3: 
+            echo "\nGracias. Fin del programa.";
+            $isMenu = 0;
+            $isSubmenu = 0;
+            $isEnd = true;
+            break;
+    }
+}
+$n=0;
+while ( $n != 0 ) {
+    
+    echo "Introduce n: ";
+    fscanf ( STDIN, "%d\n", $n );
+    
+    if($n!=0){
+        array_push($a, $n);
+    }
+}
+
+
+
+

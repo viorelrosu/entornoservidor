@@ -1,0 +1,10 @@
+<?php
+$fecha = "1978/10/04";
+
+$segundos = date("s",$fecha);
+$minutos = date("i",$fecha);
+$horas = date("H",$fecha);
+
+$dias = $horas/24;
+$meses = $dias/30;
+$anios = $meses/12;

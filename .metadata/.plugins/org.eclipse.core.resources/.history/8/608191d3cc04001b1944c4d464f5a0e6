@@ -1,0 +1,66 @@
+<?php
+
+$menus = [
+    1 => 'Mostrar departamentos',
+    2 => 'Mostrar departamento por id',
+    3 => 'Dar de alta departamento',
+    4 => 'Editar departamento',
+    5 => 'Dar de baja departamento'
+];
+
+function mostrarMenu(){
+    
+    
+    echo <<<MENU
+    Menu: Elige una opción (1-5)
+    =====
+    
+    MENU;
+    foreach($menus as $clave => $menu) {
+        echo $clave . ". " . $menu."\n";
+    }
+}
+
+function mostrarMensajeErroOpcion(){
+    echo "=====\n";
+    echo "La opción $opcion no es válida. \nPor favor, elige una opción entre 1 y 5. \n\n";
+}
+
+$bd=[
+    'departamentos' => [
+        10 => [ 
+            'nombre' => 'Ventas',
+            'descripcion' => 'Dpto. de Ventas'
+        ],
+    ],
+    'empleados' => [
+        100 => [
+            'idDpt' => 10,
+            'nombre' => 'Pepe',
+            'apellido' => 'Sánchez',
+        ],
+        200 => [
+            'idDpt' => 10,
+            'nombre' => 'Ana',
+            'apellido' => 'Garcia'
+        ]
+    ]
+];
+
+$opcion=0;
+do{
+    if($opcion != 0 && $opcion > 5) {
+        mostrarMensajeErroOpcion($menus);
+    }
+    
+    mostrarMenu();
+    
+    fscanf ( STDIN, "%d\n", $opcion );
+}while($opcion>5);
+
+if($opcion <= 5) {
+    echo "has elegido la opción: $menus[$opcion]";
+}
+
+
+

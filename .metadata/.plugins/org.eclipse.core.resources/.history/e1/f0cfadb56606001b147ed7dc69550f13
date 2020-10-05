@@ -1,0 +1,291 @@
+<?php
+
+$isEnd = false;
+$isMenu = 0;
+$isSubmenu = 0;
+
+$bd=[
+    'departamentos' => [
+        10 => [
+            'idDept' => 10,
+            'nombre' => 'Ventas',
+            'descripcion' => 'Dpto. de Ventas'
+        ],
+    ],
+    'empleados' => [
+        100 => [
+            'idEmpleado' => 100,
+            'idDpt' => 10,
+            'nombre' => 'Pepe',
+            'apellidos' => 'Sánchez',
+        ],
+        200 => [
+            'idEmpleado' => 200,
+            'idDpt' => 10,
+            'nombre' => 'Ana',
+            'apellidos' => 'Garcia'
+        ]
+    ]
+];
+
+
+function getMenuPrincipal(){
+    
+    echo <<<MENU
+    
+    Menu Principal: Elige una opción (1-3)
+    =====
+    1. Departamentos
+    2. Empleados
+    3. Salir del programa
+    
+    MENU;
+    
+}
+
+function getMenuDepartamentos(){
+    echo <<<MENU
+    
+    Menu Departamentos: Elige una opción (1-5)
+    =====
+    
+    MENU;
+    
+    $opciones = [
+        1 => 'Mostrar departamentos',
+        2 => 'Mostrar departamento por id',
+        3 => 'Dar de alta departamento',
+        4 => 'Editar departamento',
+        5 => 'Dar de baja departamento',
+        6 => 'Volver al Menu principal'
+    ];
+    
+    foreach($opciones as $clave => $menu) {
+        echo $clave . ". " . $menu."\n";
+    }
+}
+
+function getMenuEmpleados(){
+    echo <<<MENU
+    Menu Empleados: Elige una opción (1-5)
+    =====
+    
+    MENU;
+    
+    $opciones = [
+        1 => 'Mostrar empleados',
+        2 => 'Mostrar empleado por id',
+        3 => 'Dar de alta empleado',
+        4 => 'Editar empleado',
+        5 => 'Dar de baja empleado',
+        6 => 'Volver al Menu principal'
+    ];
+    
+    foreach($opciones as $clave => $menu) {
+        echo $clave . ". " . $menu."\n";
+    }
+}
+
+function mostrarDepartamentos(){
+    global $bd;
+    
+    echo <<<DEPT
+    Listado Departamentos
+    =====
+    
+    DEPT;
+    
+    foreach($bd['departamentos'] as $dept){
+        echo $dept['idDept'] ." ".$dept['nombre'] ." ".$dept['descripcion']."\n";
+    }
+    echo "\n";
+}
+
+function mostrarEmpleados(){
+    global $bd;
+    
+    echo <<<DEPT
+    Listado Empleados
+    =====
+    
+    DEPT;
+    
+    foreach($bd['empleados'] as $empl){
+        echo $empl['idEmpleado'] .' '. $empl['idDpt'] .' '. $empl['nombre'] ." ".$empl['apellidos']."\n";
+    }
+    echo "\n";
+}
+
+function altaDepartamento(){
+    global $bd;
+    
+    echo <<<TITULO
+    Dar de alta Departamento
+    =====
+    
+    TITULO;
+    
+    $idDept = array_key_last($bd['departamentos'])+10;
+    deptAltaEdit($idDept);
+    
+    echo "El departamento $dept ha sido dado de alta correctamente";
+    
+    
+}
+
+function deptAltaEdit($id){
+    $dept = '';
+    $descr = '';
+    echo "Introduce el nombre del Departamento";
+    fscanf(STDIN, "%s\n", $dept);
+    
+    echo "Introduce la descripción del Departamento";
+    fscanf(STDIN, "%s\n", $descr);
+    
+    $bd['departamentos'][$id] = [
+        'idDept'=>$id,
+        'nombre' => $dept,
+        'descripcion' => $descr
+    ];
+    
+}
+
+function mostrarDepartamentoById(){
+    global $bd;
+    
+    echo <<<TITULO
+    Mostrar Departamento por ID
+    =====
+    
+    TITULO;
+    
+    mostrarDepartamentos();
+    $id=10;
+    echo "Introduce el ID del Departamento";
+    fscanf(STDIN, "%d\n", $id);
+    
+    echo $bd['departamentos'][$id]['idDept'] ." ".$bd['departamentos'][$id]['nombre'] ." ".$bd['departamentos'][$id]['descripcion']."\n";
+    echo "\n";
+}
+
+
+function editDepartamento(){
+    global $bd;
+    
+    echo <<<TITULO
+    Modificar Departamento por ID
+    =====
+    
+    TITULO;
+    
+    mostrarDepartamentos();
+    $id=10;
+    echo "Introduce el ID del Departamento que quieres modificar";
+    fscanf(STDIN, "%d\n", $id);
+    
+    echo "Has elegido el departamento \n";
+    echo "================";
+    echo $bd['departamentos'][$id]['idDept'] ." ".$bd['departamentos'][$id]['nombre'] ." ".$bd['departamentos'][$id]['descripcion']."\n";
+    echo "\n";
+    
+    
+    deptAltaEdit($id);
+    
+    echo "El Departamento {$bd['departamentos'][$id]['nombre']} ha sido modificado correctamente";
+    
+}
+
+
+while(!$isEnd) {
+    switch($isMenu) {
+        case 0:
+            getMenuPrincipal();
+            fscanf(STDIN, "%d\n", $isMenu);
+            break;
+        case 1:
+            getMenuDepartamentos();
+            fscanf(STDIN, "%d\n", $isSubmenu);
+            $isMenu = 1;
+            switch($isSubmenu){
+                case 1:
+                    //mostrar departamentos
+                    mostrarDepartamentos();
+                    break;
+                case 2:
+                    //mostrar departamento by id
+                    mostrarDepartamentoById();
+                    break;
+                case 3:
+                    //alta departamento
+                    altaDepartamento();
+                    break;
+                case 4:
+                    //edit departamento
+                    editDepartamento();
+                    break;
+                case 5:
+                    //delete departamento
+                    delDepartamento();
+                    break;
+                case 6:
+                    //reset
+                    $isMenu=0;
+                    break;
+                default:
+                    //reset
+                    $isMenu=0;
+                    break;
+            }
+            break;
+        case 2:
+            getMenuEmpleados();
+            fscanf(STDIN, "%d\n", $isSubmenu);
+            $isMenu = 2;
+            switch($isSubmenu){
+                case 1:
+                    //mostrar empleados
+                    mostrarEmpleados();
+                    break;
+                case 2:
+                    //mostar empleado by id
+                    mostrarEmpleadoById();
+                    break;
+                case 3:
+                    //alta empleado
+                    altaEmpleado();
+                    break;
+                case 4:
+                    //edit empleado
+                    editEmpleado();
+                    break;
+                case 5:
+                    //delete empleado
+                    delEmpleado();
+                    break;
+                case 6:
+                    //reset
+                    $isMenu = 0;
+                    break;
+                default:
+                    //reset
+                    $isMenu = 0;
+                    break;
+            }
+            break;
+        case 3: 
+            echo "\nGracias. Fin del programa.";
+            $isMenu = 0;
+            $isSubmenu = 0;
+            $isEnd = true;
+            break;
+        default:
+            echo "\nIntroduce una opción válida";
+            $isMenu = 0;
+            break;
+    }
+}
+
+
+
+
+
