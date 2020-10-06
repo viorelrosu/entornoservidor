@@ -38,6 +38,7 @@ function getMenuDepartamentos(){
 
 function getMenuEmpleados(){
     echo <<<MENU
+    
     Menu Empleados: Elige una opción (1-5)
     =====
     
@@ -57,7 +58,7 @@ function getMenuEmpleados(){
     }
 }
 
-function mostrarDepartamentos($bd){
+function mostrarDepartamentos(&$bd){
     
     echo <<<DEPT
     Listado Departamentos
@@ -66,12 +67,14 @@ function mostrarDepartamentos($bd){
     DEPT;
     
     foreach($bd['departamentos'] as $dept){
-        echo $dept['idDept'] ." ".$dept['nombre'] ." ".$dept['descripcion']."\n";
+        echo "\n\n=========\n";
+        echo "[".$dept['idDept'] ."] ".$dept['nombre'] ." ".$dept['descripcion']."\n";
+        echo "=========\n";
     }
     echo "\n";
 }
 
-function mostrarEmpleados($bd){
+function mostrarEmpleados(&$bd){
     
     echo <<<DEPT
     Listado Empleados
@@ -80,12 +83,14 @@ function mostrarEmpleados($bd){
     DEPT;
     
     foreach($bd['empleados'] as $empl){
-        echo $empl['idEmpleado'] .' '. $empl['idDpt'] .' '. $empl['nombre'] ." ".$empl['apellidos']."\n";
+        echo "\n\n=========\n";
+        echo "[".$empl['idEmpleado']."]" .' '. $empl['nombre'] ." ".$empl['apellidos'].' ('.$bd['departamentos'][$empl['idDept']]['nombre'].')'."\n";
+        echo "=========\n";
     }
     echo "\n";
 }
 
-function altaDepartamento($bd){
+function altaDepartamento(&$bd){
     
     echo <<<TITULO
     Dar de alta Departamento
@@ -96,12 +101,12 @@ function altaDepartamento($bd){
     $idDept = array_key_last($bd['departamentos'])+10;
     deptAltaEdit($idDept, $bd);
     
-    echo "El departamento {$bd['departamentos'][$idDept]} ha sido dado de alta correctamente";
+    echo "El departamento {$bd['departamentos'][$idDept]['nombre']} ha sido dado de alta correctamente";
     
     
 }
 
-function deptAltaEdit($id, $bd){
+function deptAltaEdit($id, &$bd){
     $nombre = '';
     $descr = '';
     echo "Introduce el nombre del Departamento";
@@ -121,7 +126,7 @@ function deptAltaEdit($id, $bd){
     
 }
 
-function mostrarDepartamentoById($bd){
+function mostrarDepartamentoById(&$bd){
     
     echo <<<TITULO
     Mostrar Departamento por ID
@@ -138,8 +143,7 @@ function mostrarDepartamentoById($bd){
     echo "\n";
 }
 
-
-function editDepartamento($bd){
+function editDepartamento(&$bd){
     
     echo <<<TITULO
     Modificar Departamento por ID
@@ -164,7 +168,7 @@ function editDepartamento($bd){
     
 }
 
-function delDepartamento($bd){
+function delDepartamento(&$bd){
     
     echo <<<TITULO
     Dar de baja Departamento por ID
@@ -193,9 +197,102 @@ function delDepartamento($bd){
     } else {
         echo "Operación cancelada";
     }
+ 
+}
+
+
+//EMPLEADOS =========================
+function altaEmpleado(&$bd){
+    
+    echo <<<TITULO
+    Dar de alta Empleado
+    =====
+    
+    TITULO;
+    
+    $idEmpl = array_key_last($bd['empleados'])+100;
+    emplAltaEdit($idEmpl, $bd);
+    
+    echo "El empleado {$bd['empleados'][$idEmpl]['nombre']} ha sido dado de alta correctamente";
     
     
+}
+
+function emplAltaEdit($id, &$bd){
     
+    echo "\nNombre:";
+    $nombre = readline();
+    
+    echo "Apellido:";
+    $apellido = readline();
+    
+    echo "Id Dept:";
+    $idDept = readline();
+    
+    $bd['empleados'][$id] = [
+        'idEmpl'=>$id,
+        'nombre' => $nombre,
+        'apellidos' => $apellido,
+        'idDept' => $idDept
+    ];
+}
+
+function editEmpleado(&$bd){
+    
+    echo <<<TITULO
+    
+    Modificar Empleado por ID
+    =====
+    
+    TITULO;
+    
+    mostrarEmpleados($bd);
+    $id=10;
+    echo "Introduce el ID del Empleado que quieres modificar";
+    fscanf(STDIN, "%d\n", $id);
+    
+    echo "Has elegido el empleado \n";
+    echo "================\n";
+    echo $bd['empleados'][$id]['nombre'] ." ".$bd['empleados'][$id]['apellidos'] ." (".$bd['departamentos'][$bd['empleados'][$id]['idDept']]['nombre'].")\n";
+    echo "\n";
+    
+    
+    emplAltaEdit($id, $bd);
+    
+    echo "El Empleado {$bd['empleados'][$id]['nombre']} ha sido modificado correctamente";
+    
+}
+
+function delEmpleado(&$bd){
+    
+    echo <<<TITULO
+    
+    Dar de baja Empleado por ID
+    =====
+    
+    TITULO;
+    
+    mostrarEmpleados($bd);
+    $id=10;
+    echo "Introduce el ID del Empleado que quieres dar de baja";
+    fscanf(STDIN, "%d\n", $id);
+    
+    echo "Has elegido el empleado \n";
+    echo "================\n";
+    echo "[".$bd['empleados'][$id]['idEmpleado'] ."] ".$bd['empleados'][$id]['nombre'] ." (".$bd['empleados'][$id]['apellidos'].$bd['departamentos'][$bd['empleados'][$id]['idDept']]['nombre'].")\n";
+    echo "\n";
+    $nombre = $bd['empleados'][$id]['nombre'];
+    
+    $confirmar = 'N';
+    echo "\n ¿Estas seguro de quierer dar de baja este empleado? S/N";
+    fscanf(STDIN, "%s\n", $confirmar);
+    
+    if($confirmar == 'S') {
+        unset($bd['empleados'][$id]);
+        echo "El Empleado $nombre ha sido dado de baja correctamente. \n";
+    } else {
+        echo "Operación cancelada";
+    }
     
 }
 
@@ -309,13 +406,13 @@ $bd=[
     'empleados' => [
         100 => [
             'idEmpleado' => 100,
-            'idDpt' => 10,
+            'idDept' => 10,
             'nombre' => 'Pepe',
             'apellidos' => 'Sánchez',
         ],
         200 => [
             'idEmpleado' => 200,
-            'idDpt' => 10,
+            'idDept' => 10,
             'nombre' => 'Ana',
             'apellidos' => 'Garcia'
         ]
