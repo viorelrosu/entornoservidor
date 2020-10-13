@@ -1,4 +1,0 @@
-<?php
-$fecha = "1978/10/04";
-
-$segundos = date('s',$fecha);
