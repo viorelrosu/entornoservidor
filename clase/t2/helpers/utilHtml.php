@@ -37,10 +37,28 @@ function pintarCheckboxes($nombre, $arrayValueLabel, $seleccionado){
 function pintarCheckboxes2($nombre, $arrayValueLabel, $seleccionados){
     $html = '';
     foreach($arrayValueLabel as $value => $label) {
-        $html .= "<label for=\"id-$value\">$label</label>";
-        $html .= "<input type=\"checkbox\" name=\"$nombre\[]\" value=\"$value\" id=\"id-$value\" ".(in_array($value, $seleccionados) ? 'checked="checked"' : '')."/>\n";
-        $html .= "<br />";
+        $checked = (in_array($value, $seleccionados) ? 'checked="checked"' : '');
+        $html .= <<<HTML
+<input type="checkbox" name="{$nombre}[]" value="$value" id="id-$value" $checked />
+<label for="id-$value">$label</label>
+<br />
+HTML;
     }
+    
+    return $html;
+    
+}
+
+function pintarSelect($nombre, $array, $seleccionados, $esMultiple=false){
+    $html = $esMultiple ? "<select name=\"{$nombre}[]\" multiple=\"multiple\" >\n" : "<select name=\"$nombre\" >\n";
+    
+    foreach($array as $value => $label) {
+        $selected = (in_array($value, $seleccionados)) ? 'selected="selected"' : '';
+        $html .= <<<HTML
+<option value="$value" $selected >$label</option>
+HTML;
+    }
+    $html .= "</select>\n";
     
     return $html;
     
