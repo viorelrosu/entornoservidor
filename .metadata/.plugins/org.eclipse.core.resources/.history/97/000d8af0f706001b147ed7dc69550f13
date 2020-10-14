@@ -1,5 +1,0 @@
-<?php
-$actual = time();
-
-echo date("H:i", $actual);
-echo date("d M Y", $actual);
