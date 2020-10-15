@@ -1,33 +1,34 @@
 <?php
-$numRadios = isset($_GET['numRadio']) ? $_GET['numRadio'] : false;
+require_once '../helpers/utilHTML.php';
+$numRadios = isset($_GET['numRadios']) ? $_GET['numRadios'] : false;
 
 if ($numRadios) {
-    $numeros = [
-        1 => 'Uno',
-        2 => 'Dos',
-        3 => 'Tres',
-        4 => 'Cuatro',
-        5 => 'Cinco',
-        6 => 'Seis',
-        7 => 'Siete',
-        8 => 'Ocho',
-        9 => 'Nueve',
-        10 => 'Diez',
-        11 => 'Once',
-        12 => 'Doce',
-        13 => 'Trece',
-        14 => 'Qatorce',
-        15 => 'Quince'
+    $e = [
+        'Cero',
+        'Uno',
+        'Dos',
+        'Tres',
+        'Cuatro',
+        'Cinco',
+        'Seis',
+        'Siete',
+        'Ocho',
+        'Nueve',
+        'Diez',
+        'Once',
+        'Doce',
+        'Trece',
+        'Catorce',
+        'Quince'
     ];
     
         echo '<form action="resultado.php" method="get">';
-        echo "<label>Selecciona una opción</label><br />";
+        echo "<h1>Selecciona una opción</h1>";
+        $a = [];
         for ($i = 1; $i <= $numRadios; $i++) {
-            echo <<<HTML
-                <input type="radio" name="numSel" value="$i" /> $numeros[$i]<br />
-            HTML;
+            $a[$i] = $e[$i];
         };
-        
+        echo pintarRadio('numSel', $a, 1);
         echo '<br /><input type="submit" value="Enviar" />';
         echo '</form>';
 }
