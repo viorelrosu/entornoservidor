@@ -3,7 +3,8 @@
 $palabras = [
 	'Ungüento',
 	'Fútbol',
-	'Malabarismo'
+	'Malabarismo',
+	'Inés'
 ];
 
 ?>
