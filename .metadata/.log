@@ -2422,3 +2422,856 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2020-10-21 13:23:39.053
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.100
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.102
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.103
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.107
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.109
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.111
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.111
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.112
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.113
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.113
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.113
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.113
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.114
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 15:57:16.114
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.476
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.476
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.477
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.477
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.477
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.477
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.477
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.478
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-23 17:47:32.479
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.414
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.415
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.416
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.416
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.416
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.417
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.418
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.419
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.421
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.421
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.421
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.421
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.422
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-25 12:50:03.422
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+!SESSION 2020-10-26 15:17:24.077 -----------------------------------------------
+eclipse.buildId=4.17.0.I20200902-1800
+java.version=14.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.php.product -keyring /Users/viorelrosu/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.php.product -keyring /Users/viorelrosu/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-10-26 15:17:33.752
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.wst.sse.ui 2 2 2020-10-26 15:17:51.477
+!MESSAGE Configuration element ConfigurationElementHandle [name: proposalComputerExtendedActivation, id: org.eclipse.wst.jsdt.web.ui.ContentAssistProposals, handle id: 10133, namespace: org.eclipse.php.ui] intented to extend an existing completion proposal computer specified an invalid completion proposal computer ID org.eclipse.wst.jsdt.web.ui.ContentAssistProposals
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.955
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.955
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.959
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.960
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.960
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.961
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.961
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.962
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.964
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.964
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.965
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.965
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.966
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 15:17:51.968
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.717
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.717
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.717
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.718
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.718
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.718
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.718
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.719
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.719
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.720
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.720
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.720
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.720
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:16.721
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.351
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.352
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.353
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.353
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.353
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.354
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.354
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.354
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.354
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.355
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.355
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.355
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.355
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:19.356
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.041
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.041
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.043
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.043
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.044
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.044
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.044
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.044
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.045
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.045
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.045
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.046
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.046
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:31.046
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.143
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.143
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.145
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.145
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.146
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.146
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.146
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.146
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.147
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.147
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.147
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.148
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.148
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:33.148
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.818
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.819
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.820
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.821
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.821
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.821
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.821
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.822
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.822
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.822
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.822
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.823
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.823
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:42.823
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.991
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.992
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.993
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.994
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.994
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.994
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.995
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.995
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.995
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.995
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.996
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.996
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.996
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-26 16:04:52.996
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.804
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.807
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.807
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.808
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.808
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.808
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.809
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.809
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.810
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.810
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.810
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.810
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.811
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 10:58:36.811
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.604
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.604
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.604
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.605
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.605
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.605
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.605
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.606
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.606
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.606
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.606
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.607
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.607
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:07.607
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.140
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.141
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.141
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.141
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.141
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.141
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.142
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.142
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.142
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.142
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.143
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.143
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.143
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:03:20.143
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.935
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.935
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.937
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.937
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.937
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.937
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.938
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.938
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.938
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.938
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.939
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.939
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.939
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:04:52.939
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.871
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.871
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.873
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.873
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.873
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.874
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.874
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.874
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.874
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.875
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.875
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.875
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.875
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:17:37.875
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.865
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.865
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.867
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.867
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.867
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.867
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.868
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.868
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.868
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.868
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.869
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.869
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.869
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:22:11.869
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.888
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.889
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.891
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.891
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.891
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.891
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.891
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.892
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.892
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.892
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.892
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.893
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.893
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:29:54.893
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.317
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.317
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.318
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.318
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.318
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.318
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.319
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.319
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.319
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.320
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.320
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.320
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.320
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.320
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.804
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.804
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.805
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.805
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.805
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.805
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.806
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.806
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.806
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.806
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.807
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.807
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.807
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 11:47:30.807
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.239
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.241
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.242
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.242
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.242
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.242
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.243
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.243
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.243
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.243
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.244
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.244
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.244
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-10-27 12:41:56.244
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER

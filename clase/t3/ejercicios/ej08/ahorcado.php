@@ -1,54 +1,127 @@
 <?php
 session_start();
-
 require_once('bd.php');
 require_once('util.php');
 
-$letra = isset($_GET['letra']) && !empty($_GET['letra']) ? $_GET['letra'] : '';
+mb_internal_encoding ( "UTF-8" );
 
+$letraAProbar = isset($_GET['letra']) && !empty($_GET['letra']) ? $_GET['letra'] : '';
 $mensaje = '';
+$primeraVez = ($letraAProbar == null);
+$isGameOver = false;
+$maxFallos = 6;
 
-if( $letra ) {
+if ($primeraVez) { // Comienza el juego
+	session_unset ();
+	$palabraOculta = inicializarPalabraOculta ();
+	$_SESSION ['palabraOculta'] = $palabraOculta;
 
-	if( in_array($letra, $_SESSION['letrasProbadas']) ) {
-		$mensaje = "La letra $letra ya se ha probado anteriormente.";
-	} else {
+	$palabraEnCurso = inicializarPalabraEnCurso ( mb_strlen ( $palabraOculta ) );
+	$_SESSION ['palabraEnCurso'] = $palabraEnCurso;
 
-		if ( strpos($palabra, $letra) ) {
-			$mensaje = "Enhorabuena. La letra $letra existe en la palabra.";
-		} else {
-			//no existe
-			$_SESSION['nFallos'] += 1;
-			$mensaje = "Lo siento, la letra $letra no existe en la palabra.";
-		}
+	$letrasProbadas = '';
+	$_SESSION ['letrasProbadas'] = $letrasProbadas;
 
-		$_SESSION['letrasProbadas'][] = $letra;
-		$_SESSION['nIntentos'] +=  1 ;
-	}
+	$nIntentos = 0;
+	$_SESSION ['nIntentos'] = $nIntentos;
 
+	$nFallos = 0;
+	$_SESSION ['nFallos'] = $nFallos;
+
+	$mensaje = 'BIENVENIDO. Para empezar a jugar introduce una letra';
 } else {
-	$_SESSION['letrasProbadas'] = [];
-	$_SESSION['nIntentos'] = 0;
-	$_SESSION['nFallos'] = 0;
+	$palabraOculta = $_SESSION ['palabraOculta'];
+	$palabraEnCurso = $_SESSION ['palabraEnCurso'];
+	$letrasProbadas = $_SESSION ['letrasProbadas'];
+	$nIntentos = $_SESSION ['nIntentos'] + 1;
+	$_SESSION ['nIntentos'] = $nIntentos;
+	$nFallos = $_SESSION ['nFallos'];
+
+	if (existeLetra ( $letraAProbar, $letrasProbadas )) {
+		// La letra ya estaba probada
+		$mensaje = "La letra $letraAProbar ya la habías introducido antes";
+	} else {
+		// La letra NO está probada todavía
+		$letrasProbadas .= (($letrasProbadas == '' ? '' : ' ') . normaliza ( $letraAProbar ));
+		$_SESSION ['letrasProbadas'] = $letrasProbadas;
+
+		if (existeLetra ( $letraAProbar, $palabraOculta )) {
+			// Acertó con la letra
+			$mensaje = "¡¡ACERTASTE!! La letra $letraAProbar pertenece a la palabra";
+			$palabraEnCurso = actualizarPalabraEnCurso ( $palabraOculta, $palabraEnCurso, $letraAProbar );
+			$_SESSION ['palabraEnCurso'] = $palabraEnCurso;
+
+			if (existeLetra ( '-', $palabraEnCurso )) {
+				// Todavía quedan letras por descubrir
+				$mensaje .= '. Introduce otra letra';
+			} else {
+				// GANA el juego.
+				$isGameOver = true;
+				$mensaje .= '<br/> <h1>GANASTE</h1>';
+			}
+		} else {
+			// Falló. La letra no estaba en la palabra original.
+			$nFallos ++;
+			$_SESSION ['nFallos'] = $nFallos;
+			$mensaje = "Lo siento, la letra $letraAProbar no está en la palabra";
+			$isGameOver = ($nFallos == $maxFallos);
+			$mensaje .= ($isGameOver ? ". PERDISTE por cometer $maxFallos fallos" : '');
+		}
+	}
 }
 
-$palabraElegida = $palabras[rand(0,2)];
-
-echo "<h1>Bienvenido al juego.</h1>";
-echo "<h2>Para empezar a jugar introduce una letra</h2>";
+/* ============= */
 
 echo <<<HTML
-<form>
-<label>Introduce una letra</label>
-<input type="text" name="letra" value="" style="width:50px; padding: 10px; font-size: 20px;"/>
-<input type="submit" value="Probar" />
-</form>
-<p>$mensaje</p>
-<p>
-Letras probadas: {$_SESSION['letrasProbadas']}<br />
-Número de Intentos: {$_SESSION['nIntentos']}<br />
-Número de Fallos: {$_SESSION['nFallos']}<br />
-</p>
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<body onload="document.getElementById('idLetra').focus();">
+<h4>$mensaje</h4>
+<hr>
+HTML;
+
+if(!$isGameOver) {
+	echo <<<HTML
+	<form action="ahorcado.php">
+	<label>Introduce una letra</label>
+	<input type="text" name="letra" value="" id="idLetra" style="width:50px; padding: 10px; font-size: 20px;"/>
+	<input type="submit" value="Probar" style="font-size: 20px; "/>
+	</form>
+	HTML;
+} else {
+	echo <<<HTML
+	<div style="margin: 20px 0px;">
+	<form action="ahorcado.php">
+		<input type="submit" value="Nuevo juego" style="font-size: 30px;"/>
+	</form>
+	</div>
+	HTML;
+}
+
+echo pintarLetras ( $palabraEnCurso );
+
+
+echo <<<HTML
+<div style="border: 1px solid #000; padding:10px; width: 50%; margin-top: 20px;">
+<!--<b>Palabra oculta</b>: $palabraOculta <br />-->
+<b>Letras probadas</b>: $letrasProbadas <br />
+<b>Número de Intentos</b>: $nIntentos<br />
+<b>Número de Fallos</b>: $nFallos / $maxFallos<br />
+</div>
+HTML;
+
+echo <<<HTML
+</body>
+</html>
 HTML;
 
  ?>
+
+
+
