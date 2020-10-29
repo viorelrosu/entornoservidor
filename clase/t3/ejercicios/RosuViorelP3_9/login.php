@@ -21,7 +21,7 @@ if( $primeraVez ) {
 } else {
 
 	if ( $tipo == 'registro' and in_array($user, array_keys($_SESSION['usuarios']) ) ) {
-		$mensaje = ['success', 'Gracias por registrarte $user! Ya puedes iniciar sessión con tus datos!'];
+		$mensaje = ['success', "Gracias por registrarte $user! Ya puedes iniciar sessión con tus datos!"];
 	}
 }
 
