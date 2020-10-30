@@ -1,7 +1,7 @@
 <?php
-$isAjax = isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ? strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'xmlhttprequest' ) : false ;
+$isAjax = isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ? strtolower( $_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' : false ;
 
-// if($isAjax) {
+if($isAjax) {
 	$nombre = isset($_GET['nombre']) ? $_GET['nombre'] : 'Desconocido';
 	if($nombre) {
 		$num = rand(1,3);
@@ -34,8 +34,8 @@ $isAjax = isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ? strtolower( $_SERVER['HTT
 		echo "<h2>No viene el nombre</h2>";
 	}
 
-// } else {
-//     echo "Solo ejecuciones Ajax";
-// }
+    } else {
+         echo "Solo ejecuciones Ajax";
+    }
 
 ?>

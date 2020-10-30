@@ -2,11 +2,18 @@
 session_start();
 require_once 'util.php';
 
-
+echo <<<HTML
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+HTML;
 
 echo <<<HTML
-<body style="padding: 20px;">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+<div class="container pt-4">
 HTML;
 
 echo getHtmlTitle('Nuevo ejercicio');
@@ -14,6 +21,7 @@ echo getHtmlTitle('Nuevo ejercicio');
 echo getHtmlAlert('info','No te olvides de borrar Sesión y Cookies');
 
 echo <<<HTML
+
 <div class="row">
 	<div class="col-md-4 offset-md-4">
 		<form action="" method="get" >
@@ -86,6 +94,7 @@ HTML;
 echo getHtmlFooter();
 
 echo <<<HTML
+</div>
 </body>
 HTML;
 
