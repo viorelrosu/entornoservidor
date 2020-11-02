@@ -7,12 +7,12 @@
 	<script type="text/javascript" src="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/form-serialize/serialize-0.2.min.js" ></script>
 	<script>
 		var x;
-		
+
 		function accionAjax(){
 			var text = x.responseText;
 			document.getElementById('myDiv').innerHTML = x.responseText;
 		}
-		
+
 		function miFunction(){
 			var datosForm = serialize(document.getElementById('idForm'));
 			x = new XMLHttpRequest();
@@ -24,7 +24,7 @@
 				if( x.readyState == 4 && x.status == 200 ) {
 					accionAjax();
 				}
-			}			
+			}
 		}
 	</script>
 </head>

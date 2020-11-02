@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,26 +9,9 @@
 	<script type="text/javascript">
 		var x;
 
-		function accionAjax(){
-			var response = x.responseText;
-			response = response.split('#');
-			document.getElementById('idWord').innerHTML = response[0];
-			document.getElementById('idTranslation').innerHTML = response[1];
-			document.getElementById('idBoton').value = response[2];
-		}
-
 		function peticionAjax(){
 			idioma = document.querySelector('input[name="idioma"]:checked').value;
-			x = new XMLHttpRequest();
-			x.open('GET','ajax.php?idioma='+idioma,true);
-			x.setRequestHeader('X-Requested-With','XMLHttpRequest');
-			x.send();
-
-			x.onreadystatechange = function (){
-				if(x.readyState==4 && x.status==200) {
-					accionAjax();
-				}
-			}
+			document.getElementById("idFCambioIdioma").submit();
 		}
 	</script>
 </head>
@@ -50,22 +34,27 @@
 					$lPalabra = $etiquetas[0];
 					$lTraduccion = $etiquetas[1];
 					$lEnviar = $etiquetas[2];
+					echo '<form id="idFCambioIdioma" action="index.php">';
 					echo pintarRadioPaises( $idioma );
+					echo '</form>';
 					echo "<hr />";
 				?>
 			</div>
+
 			<div class="col-md-6 offset-md-3">
-				<div class="form-group">
-					<label id="idWord"><?php echo $lPalabra?></label>
-					<input type="text" name="" id="">
-				</div>
-				<div class="form-group">
-					<label id="idTranslation"><?php echo $lTraduccion; ?></label>
-					<input type="text" name="" id="">
-				</div>
-				<div class="form-group"><input type="submit" id="idBoton" value="<?php echo $lEnviar; ?>"></div>
+				<form>
+					<div class="form-group">
+						<label id="idWord"><?php echo $lPalabra?></label>
+						<input type="text" name="" id="">
+					</div>
+					<div class="form-group">
+						<label id="idTranslation"><?php echo $lTraduccion; ?></label>
+						<input type="text" name="" id="">
+					</div>
+					<div class="form-group"><input type="submit" id="idBoton" value="<?php echo $lEnviar; ?>"></div>
+				</form>
 			</div>
-			<div id="miDiv"></div>
+
 		</div>
 	</div>
 	

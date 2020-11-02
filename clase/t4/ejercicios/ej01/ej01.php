@@ -31,7 +31,6 @@
 	<h2>Saludador</h2>
 	<label>Introduce tu nombre</label><br />
 	<input type="text" name="nombre" id="nombre" value="" /><br /><br />
-	<button onClick="peticionAjax()">Saludar</button>
-	<div id="miDiv"></div>
+	<button onClick="peticionAjax()">Saludar</button>	<div id="miDiv"></div>
 </body>
 </html>

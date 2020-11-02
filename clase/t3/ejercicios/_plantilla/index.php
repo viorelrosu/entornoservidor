@@ -23,7 +23,7 @@ echo getHtmlAlert('info','No te olvides de borrar Sesión y Cookies');
 echo <<<HTML
 
 <div class="row">
-	<div class="col-md-4 offset-md-4">
+	<div class="col-md-6 offset-md-3">
 		<form action="" method="get" >
 			<div class="form-group">
 				<label for="user">Introduce Usuario</label><br />
@@ -51,7 +51,7 @@ HTML;
 
 echo <<<HTML
 <div class="row">
-	<div class="col-md-4 offset-md-4">
+	<div class="col-md-6 offset-md-3">
 	<table class="table table-striped">
 	  <thead>
 	    <tr>
@@ -82,7 +82,7 @@ HTML;
 
 echo <<<HTML
 	<div class="row">
-		<div class="col-md-4 offset-md-4">
+		<div class="col-md-6 offset-md-3">
 			<div class="row">
 				<div class="col-md-6"><a href="add.php" class="btn btn-primary">Añadir tarea</a></div>
 				<div class="col-md-6 text-right"><a href="ver.php" class="btn btn-primary">Ver tareas</a></div>
