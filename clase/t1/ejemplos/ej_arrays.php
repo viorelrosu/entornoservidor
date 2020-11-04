@@ -37,23 +37,6 @@ echo "\$a[0] vale $b[0] \n";
 $d=[10, [10,20]];
 echo "\$d[1][1] vale {$d[1][1]} \n";
 
-echo "<form>\n";
-echo "<\tinput type=\"text\" name=\"dato\">\n";
-echo "</form>\n";
-
-echo <<<Formulario
-<form>
-    <input type="text" name="dato">
-</form>
-Formulario;
-
-echo "\nend formulario";
-
-$html =  <<<Formulario
-<form>
-    <input type="text" name="dato">
-</form>
-Formulario;
 
 echo "\n".$html;
 

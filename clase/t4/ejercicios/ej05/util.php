@@ -44,13 +44,13 @@
 		return $html;
 	}
 
-	function getHtmlFooter(){
+	function getHtmlFooter($texto){
 		$html = <<<HTML
 			<footer>
 				<div class="row">
 					<div class="col-md-6 offset-md-3 text-muted">
 						<hr />
-						&copy; DAW2 Entorno Servidor - Ejercicio 05 | Viorel Rosu
+						&copy; DAW2 Entorno Servidor - Ejercicio $texto | Viorel Rosu
 					</div>
 				</div>
 			</footer>
