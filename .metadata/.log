@@ -13410,3 +13410,61 @@ java.io.FileNotFoundException: /Users/viorelrosu/eclipse-workspacePHP/dwesPHP/t3
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2020-11-04 19:07:43.053
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+!SESSION 2020-11-05 17:17:09.030 -----------------------------------------------
+eclipse.buildId=4.17.0.I20200902-1800
+java.version=14.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.php.product -keyring /Users/viorelrosu/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.php.product -keyring /Users/viorelrosu/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-11-05 17:17:15.658
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.wst.sse.ui 2 2 2020-11-05 17:17:33.933
+!MESSAGE Configuration element ConfigurationElementHandle [name: proposalComputerExtendedActivation, id: org.eclipse.wst.jsdt.web.ui.ContentAssistProposals, handle id: 10059, namespace: org.eclipse.php.ui] intented to extend an existing completion proposal computer specified an invalid completion proposal computer ID org.eclipse.wst.jsdt.web.ui.ContentAssistProposals
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.360
+!MESSAGE No line style provider for org.eclipse.wst.sse.ST_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.361
+!MESSAGE No line style provider for org.eclipse.wst.sse.UNKNOWN_PARTITION_TYPE
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.365
+!MESSAGE No line style provider for org.eclipse.php.PHP_SINGLE_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.365
+!MESSAGE No line style provider for org.eclipse.php.PHP_MULTI_LINE_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.366
+!MESSAGE No line style provider for org.eclipse.php.PHP_DOC
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.366
+!MESSAGE No line style provider for org.eclipse.php.PHP_QUOTED_STRING
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.367
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DEFAULT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.367
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_CDATA
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.369
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_DECL
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.369
+!MESSAGE No line style provider for org.eclipse.wst.xml.XML_COMMENT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.370
+!MESSAGE No line style provider for org.eclipse.wst.xml.dtd.internal_subset
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.370
+!MESSAGE No line style provider for org.eclipse.wst.xml.PROCESSING_INSTRUCTION:
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.371
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-11-05 17:17:34.373
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT.EVENTHANDLER
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2020-11-05 17:18:23.182
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/PyvesB/eclipse-planet-themes/updatesite/content.xml.xz
