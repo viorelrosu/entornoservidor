@@ -1,0 +1,6 @@
+PHP MANUAL
+=======
+
+book.strings.html
+book.array.html
+book.datetime.html
