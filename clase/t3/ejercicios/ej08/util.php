@@ -7,7 +7,7 @@
 				'Ungüento',
 				'Idiazábal'
 		];
-		return ($palabras [rand ( 0, sizeof ( $palabras ) - 1 )]);
+		return ($palabras [rand ( 0, sizeof( $palabras ) - 1 )]);
 	}
 
 	function inicializarPalabraEnCurso($numCaracteres) {
