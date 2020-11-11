@@ -20,8 +20,8 @@ echo <<<HTML
 	<div class="row">
 		<div class="col-md-4 offset-md-4">
 			<div class="row">
-				<div class="col-md-6"><a href="#" class="btn btn-primary">Añadir tarea</a></div>
-				<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">Ver tareas</a></div>
+				<div class="col-md-6"><a href="add.php" class="btn btn-primary">Añadir tarea</a></div>
+				<div class="col-md-6 text-right"><a href="ver.php" class="btn btn-primary">Ver tareas</a></div>
 			</div>
 		</div>
 	</div>
