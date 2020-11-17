@@ -21,6 +21,10 @@ $paises = getPaises();
 			<div class="col-8 offset-1">
 				<h1>Aplicación P.A.P</h1>
 				<h3>Listado Países</h3>
+				<hr />
+				<div class="text-right">
+					<a href="createGet.php" class="btn btn-primary">Crear</a>
+				</div>
 				<table class="table table-striped mt-5">
 				  <thead>
 				    <tr>
