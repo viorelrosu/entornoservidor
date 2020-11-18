@@ -6,9 +6,10 @@ require_once '../db/util.php';
 $nombreP = isset($_POST['nombreP']) ? $_POST['nombreP'] : null;
 $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
 $idPais = isset($_POST['idPais']) ? $_POST['idPais'] : null;
+$idsAficiones = isset($_POST['idAficion']) ? $_POST['idAficion'] : null;
 $html = '';
 if($nombreP != null and $dni != null) {
-	if(insertar($nombreP, $dni, $idPais)) {
+	if(insertar($nombreP, $dni, $idPais,$idsAficiones)) {
 		header('Location: createPostOK.php?nombreP='.$nombreP);
 	} else {
 		$html = "El DNI de la Persona no se puede repetir.";

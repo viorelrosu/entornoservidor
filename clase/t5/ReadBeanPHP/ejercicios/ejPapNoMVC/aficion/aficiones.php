@@ -1,9 +1,9 @@
 
 <?php
-require_once '../db/utilDBPais.php';
+require_once '../db/utilDBAficion.php';
 require_once '../db/util.php';
 
-$paises = getPaises();
+$aficiones = getAllAficiones();
 
 ?>
 <!DOCTYPE html>
@@ -20,42 +20,42 @@ $paises = getPaises();
 		<div class="row mt-5">
 			<div class="col-8 offset-1">
 				<h1>Aplicación P.A.P</h1>
-				<h3>Listado Países</h3>
+				<h3>Listado Aficiones</h3>
 				<hr />
 				<div class="text-right">
 					<a href="createGet.php" class="btn btn-primary">Crear</a>
 				</div>
+
 				<table class="table table-striped mt-5">
 				  <thead>
 				    <tr>
 				      <th scope="col">#</th>
-				      <th scope="col">País</th>
+				      <th scope="col">Afición</th>
 				      <th scope="col">Personas</th>
 				      <th scope="col" class="text-right">Acción</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				  	<?php
-				  		foreach($paises as $pais):
-				  			$ownPersonas = $pais->ownPersonaList;
-				  			if( count($ownPersonas) == 0 ) {
-				  				$htmlOwnPersonas = '<span class="badge badge-pill badge-danger">No hay personas asociadas</span>';
+				  		foreach($aficiones as $aficion):
+				  			$sharedPersonas = $aficion->sharedPersonaList;
+				  			if( count($sharedPersonas) == 0 ) {
+				  				$htmlSharedPersonas = '<span class="badge badge-pill badge-danger">No hay personas asociadas</span>';
 				  			} else {
-				  				$htmlOwnPersonas = getBeansToStringByNombre($ownPersonas);
+				  				$htmlSharedPersonas = getBeansToStringByNombre($sharedPersonas);
 				  			}
-
 				  	?>
 				  		<tr>
-				  			<td><?= $pais->id; ?></td>
-				  			<td><?= $pais->nombre; ?></td>
-				  			<td><?= $htmlOwnPersonas; ?></td>
+				  			<td><?= $aficion->id; ?></td>
+				  			<td><?= $aficion->nombre; ?></td>
+				  			<td><?= $htmlSharedPersonas; ?></td>
 				  			<td class="text-right">
-				  				<form action="updateGet.php" method="post" id="formAccion-<?=$pais->id;?>" >
-				  					<input type="hidden" name="id" value="<?= $pais->id; ?>">
+				  				<form action="updateGet.php" method="post" id="formAccion-<?=$aficion->id;?>" >
+				  					<input type="hidden" name="id" value="<?= $aficion->id; ?>">
 				  				</form>
 
-				  				<button class="btn btn-info btn-sm" onclick="accion(<?= $pais->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
-				  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $pais->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
+				  				<button class="btn btn-info btn-sm" onclick="accion(<?= $aficion->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
+				  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $aficion->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
 				  			</td>
 				  		</tr>
 				  	<?php endforeach; ?>

@@ -1,14 +1,17 @@
 <?php
 	require_once '../db/utilDBPersona.php';
+	require_once '../db/utilDBAficion.php';
 	require_once '../db/utilDBPais.php';
 	require_once '../db/util.php';
 
 	$paises = getPaises();
+	$aficiones = getAllAficiones();
 
 	$id = isset($_POST['id']) ? $_POST['id'] : null;
 	$persona = '';
 	if($id != null) {
 		$persona = getById($id);
+		$personaAficiones = personaAficionesToIdsArray($persona);
 	} else {
 
 	}
@@ -45,16 +48,25 @@
 						<label for="dni" class="font-weight-bold">Selecciona País</label><br />
 						<select name="idPais" class="form-control">
 							<?php foreach($paises as $pais): ?>
-								<option value="<?=$pais->id?>" <?php echo ($persona->pais_id == $pais->id)? 'selected':''?>><?=$pais->nombre?></option>
+								<option value="<?=$pais->id?>" <?php echo ($persona->pais_id == $pais->id)? 'selected':''?>><?=$pais->nombre;?></option>
 							<?php endforeach; ?>
 						</select>
+					</div>
+					<div class="form-group">
+						<label for="dni" class="font-weight-bold">Selecciona Aficiones</label><br />
+							<?php
+								foreach($aficiones as $aficion):
+								$checked = (in_array($aficion->id, $personaAficiones)) ? 'checked="checked"' : '';
+							?>
+								<input type="checkbox" name="idAficion[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
+							<?php endforeach; ?>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<input type="submit" value="Guardar" class="btn btn-primary"/>
 						</div>
 						<div class="form-group col-md-6 text-right">
-							<a href="../index.php" class="btn btn-secondary"/>Volver</a>
+							<a href="personas.php" class="btn btn-secondary"/>Volver</a>
 						</div>
 					</div>
 				</form>

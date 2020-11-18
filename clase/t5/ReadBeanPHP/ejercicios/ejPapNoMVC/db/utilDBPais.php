@@ -3,12 +3,18 @@
     require_once 'rb.php';
     require_once 'db.php';
 
-    function insertarPais($nombreP){
+    function insertarPais($nombreP, $ids){
         $pais = R::dispense('pais');
         $pais->nombre = $nombreP;
         $noExiste = (R::findOne('pais','nombre=?', [$nombreP]));
         $res = false;
         if($nombreP != null && $noExiste == null ) {
+            if(sizeof($ids)>0) {
+                foreach($ids as $id) {
+                    $persona = R::load('persona', $id);
+                    $pais->ownPersonaList[] = $persona;
+                }
+            }
             R::store($pais);
             $res = true;
         }

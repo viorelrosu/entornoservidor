@@ -1,36 +1,25 @@
 <?php
 
-require_once '../db/utilDBPersona.php';
+require_once '../db/utilDBAficion.php';
 require_once '../db/util.php';
 
 $nombreP = isset($_POST['nombreP']) ? $_POST['nombreP'] : null;
-$dni = isset($_POST['dni']) ? $_POST['dni'] : null;
-$idPais = isset($_POST['idPais']) ? $_POST['idPais'] : null;
-$idsAficiones = isset($_POST['idAficion']) ? $_POST['idAficion'] : null;
+$idsPersonas = isset($_POST['idPersona']) ? $_POST['idPersona'] : null;
 $id = isset($_POST['id']) ? $_POST['id'] : null;
-// print_r($_POST);
-// var_dump($idsAficiones);
-// exit();
+
 $html = '';
-if($nombreP != null and $id != null and $dni != null and $idPais != null and $idsAficiones != null ) {
-	echo 'asd';
-	if(actualizar($id, $nombreP, $dni, $idPais, $idsAficiones)) {
+if($nombreP != null and $id != null and ( count($idsPersonas) > 0) ) {
+	if(actualizarA($id, $nombreP, $idsPersonas)) {
 		header('Location: updatePostOK.php?nombreP='.$nombreP);
 	} else {
-		$html = "El DNI de la Persona no se puede repetir.";
+		$html = "El nombre de la Afición no se puede repetir.";
 	};
 } else {
 	if($nombreP == null) {
-		$html = "El nombre de la Persona no puede ser null.";
+		$html = "El nombre de la Afición no puede ser null.";
 	}
-	if($dni == null) {
-		$html = "El DNI de la Persona no puede ser null.";
-	}
-	if($idPais == null) {
-		$html = "El País de la Persona no puede ser null.";
-	}
-	if($idsAficiones == null) {
-		$html = "Las Aficiones de la Persona no pueden ser null.";
+	if($idsPersonas == null) {
+		$html = "Las Personas de la Afición no puede ser null.";
 	}
 }
 ?>
@@ -39,14 +28,14 @@ if($nombreP != null and $id != null and $dni != null and $idPais != null and $id
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Modificar Persona</title>
+	<title>Modificar Afición</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col-md-6 offset-md-3">
-				<h2>Modificar Persona</h2>
+				<h2>Modificar Afición</h2>
 			</div>
 		</div>
 		<div class="row">

@@ -1,8 +1,9 @@
 <?php 
-
 require_once '../db/utilDBPais.php';
+require_once '../db/utilDBAficion.php';
 
 $paises = getPaises();
+$aficiones = getAllAficiones();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +39,18 @@ $paises = getPaises();
 							<?php endforeach; ?>
 						</select>
 					</div>
+					<div class="form-group">
+						<label for="idPersona" class="font-weight-bold">Selecciona aficiones</label><br />
+						<?php foreach($aficiones as $aficion):?>
+							<input type="checkbox" name="idAficion[]" id="id-<?=$aficion->id;?>" value="<?=$aficion->id;?>" /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre;?></label><br />
+						<?php endforeach; ?>
+					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<input type="submit" value="Guardar" class="btn btn-primary"/>
 						</div>
 						<div class="form-group col-md-6 text-right">
-							<a href="../index.php" class="btn btn-secondary"/>Volver</a>
+							<a href="personas.php" class="btn btn-secondary"/>Volver</a>
 						</div>
 					</div>
 				</form>

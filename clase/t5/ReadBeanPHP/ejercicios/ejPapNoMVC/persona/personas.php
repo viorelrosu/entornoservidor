@@ -30,24 +30,36 @@ $personas = getAll();
 				  <thead>
 				    <tr>
 				      <th scope="col">#</th>
-				      <th scope="col">País</th>
+				      <th scope="col">Persona</th>
 				      <th scope="col">DNI</th>
+				      <th scope="col">País</th>
+				      <th scope="col">Aficiones</th>
 				      <th scope="col" class="text-right">Acción</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				  	<?php foreach($personas as $persona): ?>
+				  	<?php
+				  		foreach($personas as $persona):
+				  			$sharedAficiones = $persona->sharedAficionList;
+				  			if( count($sharedAficiones) == 0 ) {
+				  				$htmlSharedAficiones = '<span class="badge badge-pill badge-danger">No hay aficiones asociadas</span>';
+				  			} else {
+				  				$htmlSharedAficiones = getBeansToStringByNombre($sharedAficiones);
+				  			}
+				  	?>
 				  		<tr>
 				  			<td><?= $persona->id; ?></td>
 				  			<td><?= $persona->nombre; ?></td>
 				  			<td><?= $persona->dni; ?></td>
+				  			<td><?= (($persona->pais != null) ? $persona->pais->nombre : '--' ); ?></td>
+				  			<td><?= $htmlSharedAficiones; ?></td>
 				  			<td class="text-right">
 				  				<form action="updateGet.php" method="post" id="formAccion-<?=$persona->id;?>" >
 				  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
 				  				</form>
 
-				  				<button class="btn btn-info" onclick="accion(<?= $persona->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
-				  				<button class="btn btn-danger" onclick="accion(<?= $persona->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
+				  				<button class="btn btn-info btn-sm" onclick="accion(<?= $persona->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
+				  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $persona->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
 				  			</td>
 				  		</tr>
 				  	<?php endforeach; ?>
