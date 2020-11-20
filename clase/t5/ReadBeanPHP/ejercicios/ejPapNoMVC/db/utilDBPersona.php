@@ -3,7 +3,7 @@
     require_once 'rb.php';
     require_once 'db.php';
 
-    function insertar($nombreP, $dni, $idPais, $idsAficiones=[]){
+    function insertar($nombreP, $dni, $idPais, $idPaisNacimiento, $idPaisResidencia, $idsAficiones=[], $idsAficionesGusta=[], $idsAficionesOdia=[]){
         $res = false;
         $noExiste = (R::findOne('persona','dni=?', [$dni]));
 
@@ -12,17 +12,36 @@
             $bean->nombre = $nombreP;
             $bean->dni = $dni;
             $bean->pais = R::load('pais',$idPais);
+            $bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
+            $bean->pais_residencia = R::load('pais',$idPaisResidencia);
+
             foreach($idsAficiones as $id):
                 $bean->sharedAficionList[] = R::load('aficion',$id);
             endforeach;
+
             R::store($bean);
+
+            foreach($idsAficionesGusta as $id):
+                $gusta = R::dispense('gusta');
+                $gusta->persona = $bean;
+                $gusta->aficion = R::load('aficion',$id);
+                R::store($gusta);
+            endforeach;
+
+            foreach($idsAficionesOdia as $id):
+                $odio = R::dispense('odia');
+                $odio->persona = $bean;
+                $odio->aficion = R::load('aficion',$id);
+                R::store($odio);
+            endforeach;
+
             $res = true;
         }
 
         return $res;
     }
 
-    function actualizar($id, $nombreP, $dni, $idPais, $idsAficiones=[]){
+    function actualizar($id, $nombreP, $dni, $idPais, $idPaisNacimiento, $idPaisResidencia, $idsAficiones=[], $idsAficionesGusta=[], $idsAficionesOdia=[]){
         $noExiste = (R::findOne('persona','dni=? and id <> ?', [$dni,$id]));
         $res = false;
         $bean = R::load('persona',$id);
@@ -31,10 +50,30 @@
             $bean->nombre = $nombreP;
             $bean->dni = $dni;
             $bean->pais = R::load('pais',$idPais);
+            $bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
+            $bean->pais_residencia = R::load('pais',$idPaisResidencia);
+            $bean->sharedPersonaList = [];
+            $bean->ownGustaList = [];
+            $bean->ownOdiaList = [];
             foreach($idsAficiones as $id):
                 $bean->sharedAficionList[] = R::load('aficion',$id);
             endforeach;
             R::store($bean);
+
+            foreach($idsAficionesGusta as $id):
+                $gusta = R::dispense('gusta');
+                $gusta->persona = $bean;
+                $gusta->aficion = R::load('aficion',$id);
+                R::store($gusta);
+            endforeach;
+
+            foreach($idsAficionesOdia as $id):
+                $odio = R::dispense('odia');
+                $odio->persona = $bean;
+                $odio->aficion = R::load('aficion',$id);
+                R::store($odio);
+            endforeach;
+
             $res = true;
         }
 
@@ -71,10 +110,10 @@
         return $rows;
     }
 
-    function personaAficionesToIdsArray($persona){
+    function personaAficionesToIdsArray($persona,$arraysBeans=[]){
         $arraysIds = [];
-        foreach($persona->sharedAficionList as $shared) {
-            $arraysIds[] = $shared->id;
+        foreach($arraysBeans as $bean) {
+            $arraysIds[] = $bean->id;
         }
         return $arraysIds;
     }

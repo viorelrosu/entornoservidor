@@ -37,5 +37,16 @@
 		return $html;
 	}
 
+	function getBeansToStringByAficionNombre($arrayBeans) {
+		$html = '';
+		foreach($arrayBeans as $item) {
+			$html .= '<span class="badge badge-primary">'.$item->aficion->nombre.'</span> ';
+		}
+
+		return $html;
+	}
+
+
+
 
 ?>

@@ -11,7 +11,9 @@
 	$persona = '';
 	if($id != null) {
 		$persona = getById($id);
-		$personaAficiones = personaAficionesToIdsArray($persona);
+		$personaAficiones = personaAficionesToIdsArray($persona, $persona->sharedAficionList);
+		$personaAficionesGusta = personaAficionesToIdsArray($persona, $persona->ownGustaList);
+		$personaAficionesOdia = personaAficionesToIdsArray($persona, $persona->ownOdiaList);
 	} else {
 
 	}
@@ -45,10 +47,26 @@
 						<input type="text" class="form-control" id="dni" name="dni" value="<?= $persona->dni; ?>" />
 					</div>
 					<div class="form-group">
-						<label for="dni" class="font-weight-bold">Selecciona País</label><br />
+						<label for="idPais" class="font-weight-bold">Selecciona País</label><br />
 						<select name="idPais" class="form-control">
 							<?php foreach($paises as $pais): ?>
 								<option value="<?=$pais->id?>" <?php echo ($persona->pais_id == $pais->id)? 'selected':''?>><?=$pais->nombre;?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="idPaisNacimiento" class="font-weight-bold">Selecciona País Nacimiento</label><br />
+						<select name="idPaisNacimiento" class="form-control">
+							<?php foreach($paises as $pais): ?>
+								<option value="<?=$pais->id?>" <?php echo ($persona->pais_nacimiento_id == $pais->id)? 'selected':''?>><?=$pais->nombre;?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="idPaisResidencia" class="font-weight-bold">Selecciona País Residencia</label><br />
+						<select name="idPaisResidencia" class="form-control">
+							<?php foreach($paises as $pais): ?>
+								<option value="<?=$pais->id?>" <?php echo ($persona->pais_residencia_id == $pais->id)? 'selected':''?>><?=$pais->nombre;?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
@@ -59,6 +77,24 @@
 								$checked = (in_array($aficion->id, $personaAficiones)) ? 'checked="checked"' : '';
 							?>
 								<input type="checkbox" name="idAficion[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
+							<?php endforeach; ?>
+					</div>
+					<div class="form-group">
+						<label for="idAficionGusta" class="font-weight-bold">Selecciona Aficiones que me gustan</label><br />
+							<?php
+								foreach($aficiones as $aficion):
+								$checked = (in_array($aficion->id, $personaAficionesGusta)) ? 'checked="checked"' : '';
+							?>
+								<input type="checkbox" name="idAficionGusta[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
+							<?php endforeach; ?>
+					</div>
+					<div class="form-group">
+						<label for="idAficionOdia" class="font-weight-bold">Selecciona Aficiones que odio</label><br />
+							<?php
+								foreach($aficiones as $aficion):
+								$checked = (in_array($aficion->id, $personaAficionesOdia)) ? 'checked="checked"' : '';
+							?>
+								<input type="checkbox" name="idAficionOdia[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
 							<?php endforeach; ?>
 					</div>
 					<div class="form-row">

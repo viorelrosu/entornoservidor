@@ -6,10 +6,14 @@ require_once '../db/util.php';
 $nombreP = isset($_POST['nombreP']) ? $_POST['nombreP'] : null;
 $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
 $idPais = isset($_POST['idPais']) ? $_POST['idPais'] : null;
+$idPaisNacimiento = isset($_POST['idPaisNacimiento']) ? $_POST['idPaisNacimiento'] : null;
+$idPaisResidencia = isset($_POST['idPaisResidencia']) ? $_POST['idPaisResidencia'] : null;
 $idsAficiones = isset($_POST['idAficion']) ? $_POST['idAficion'] : null;
+$idsAficionesGusta = isset($_POST['idAficionGusta']) ? $_POST['idAficionGusta'] : null;
+$idsAficionesOdia = isset($_POST['idAficionOdia']) ? $_POST['idAficionOdia'] : null;
 $html = '';
 if($nombreP != null and $dni != null) {
-	if(insertar($nombreP, $dni, $idPais,$idsAficiones)) {
+	if(insertar($nombreP, $dni, $idPais, $idPaisNacimiento, $idPaisResidencia, $idsAficiones, $idsAficionesGusta, $idsAficionesOdia)) {
 		header('Location: createPostOK.php?nombreP='.$nombreP);
 	} else {
 		$html = "El DNI de la Persona no se puede repetir.";

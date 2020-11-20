@@ -18,7 +18,7 @@ $personas = getAll();
 <body>
 	<div class="container">
 		<div class="row mt-5">
-			<div class="col-8 offset-1">
+			<div class="col-12">
 				<h1>Aplicación P.A.P</h1>
 				<h3>Listado Personas</h3>
 				<hr />
@@ -33,7 +33,11 @@ $personas = getAll();
 				      <th scope="col">Persona</th>
 				      <th scope="col">DNI</th>
 				      <th scope="col">País</th>
+				      <th scope="col">País Nacimiento</th>
+				      <th scope="col">País Residencia</th>
 				      <th scope="col">Aficiones</th>
+				      <th scope="col">Aficiones Gustan</th>
+				      <th scope="col">Aficiones Odio</th>
 				      <th scope="col" class="text-right">Acción</th>
 				    </tr>
 				  </thead>
@@ -41,19 +45,38 @@ $personas = getAll();
 				  	<?php
 				  		foreach($personas as $persona):
 				  			$sharedAficiones = $persona->sharedAficionList;
+				  			$gustaAficiones = $persona->ownGustaList;
+				  			$odiaAficiones = $persona->ownOdiaList;
+
 				  			if( count($sharedAficiones) == 0 ) {
-				  				$htmlSharedAficiones = '<span class="badge badge-pill badge-danger">No hay aficiones asociadas</span>';
+				  				$htmlSharedAficiones = '<span class="badge badge-pill badge-danger">&times;</span>';
 				  			} else {
 				  				$htmlSharedAficiones = getBeansToStringByNombre($sharedAficiones);
+				  			}
+
+				  			if( count($gustaAficiones) == 0 ) {
+				  				$htmlAficionesGusta = '<span class="badge badge-pill badge-danger">&times;</span>';
+				  			} else {
+				  				$htmlAficionesGusta = getBeansToStringByAficionNombre($gustaAficiones);
+				  			}
+
+				  			if( count($odiaAficiones) == 0 ) {
+				  				$htmlAficionesOdio = '<span class="badge badge-pill badge-danger">&times;</span>';
+				  			} else {
+				  				$htmlAficionesOdio = getBeansToStringByAficionNombre($odiaAficiones);
 				  			}
 				  	?>
 				  		<tr>
 				  			<td><?= $persona->id; ?></td>
 				  			<td><?= $persona->nombre; ?></td>
 				  			<td><?= $persona->dni; ?></td>
-				  			<td><?= (($persona->pais != null) ? $persona->pais->nombre : '--' ); ?></td>
+				  			<td><?= (($persona->pais_id != null) ? $persona->pais->nombre : '--' ); ?></td>
+				  			<td><?= (($persona->pais_nacimiento_id != null) ? $persona->fetchAs('pais')->pais_nacimiento->nombre : '--' ); ?></td>
+				  			<td><?= (($persona->pais_residencia_id != null) ? $persona->fetchAs('pais')->pais_residencia->nombre : '--' ); ?></td>
 				  			<td><?= $htmlSharedAficiones; ?></td>
-				  			<td class="text-right">
+				  			<td><?= $htmlAficionesGusta; ?></td>
+				  			<td><?= $htmlAficionesOdio; ?></td>
+				  			<td class="text-right" width="100">
 				  				<form action="updateGet.php" method="post" id="formAccion-<?=$persona->id;?>" >
 				  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
 				  				</form>
@@ -68,7 +91,7 @@ $personas = getAll();
 			</div>
 		</div>
 		<div class="row mt-5">
-			<div class="col-8 offset-1">
+			<div class="col-12">
 				<hr>
 				<a href="../index.php" class="btn btn-secondary">Volver a Menu</a>
 			</div>

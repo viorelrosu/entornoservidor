@@ -40,9 +40,37 @@ $aficiones = getAllAficiones();
 						</select>
 					</div>
 					<div class="form-group">
+						<label for="dni" class="font-weight-bold">Selecciona País Nacimiento</label><br />
+						<select name="idPaisNacimiento" class="form-control">
+							<?php foreach($paises as $pais): ?>
+								<option value="<?=$pais->id?>"><?=$pais->nombre?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="dni" class="font-weight-bold">Selecciona País Residencia</label><br />
+						<select name="idPaisResidencia" class="form-control">
+							<?php foreach($paises as $pais): ?>
+								<option value="<?=$pais->id?>"><?=$pais->nombre?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
 						<label for="idPersona" class="font-weight-bold">Selecciona aficiones</label><br />
 						<?php foreach($aficiones as $aficion):?>
 							<input type="checkbox" name="idAficion[]" id="id-<?=$aficion->id;?>" value="<?=$aficion->id;?>" /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre;?></label><br />
+						<?php endforeach; ?>
+					</div>
+					<div class="form-group">
+						<label for="idAficionGusta" class="font-weight-bold">Selecciona aficiones que me gustan</label><br />
+						<?php foreach($aficiones as $aficion):?>
+							<input type="checkbox" name="idAficionGusta[]" id="idg-<?=$aficion->id;?>" value="<?=$aficion->id;?>" /> <label for="idg-<?=$aficion->id;?>"><?=$aficion->nombre;?></label><br />
+						<?php endforeach; ?>
+					</div>
+					<div class="form-group">
+						<label for="idAficionOdia" class="font-weight-bold">Selecciona aficiones que me gustan</label><br />
+						<?php foreach($aficiones as $aficion):?>
+							<input type="checkbox" name="idAficionOdia[]" id="ido-<?=$aficion->id;?>" value="<?=$aficion->id;?>" /> <label for="ido-<?=$aficion->id;?>"><?=$aficion->nombre;?></label><br />
 						<?php endforeach; ?>
 					</div>
 					<div class="form-row">

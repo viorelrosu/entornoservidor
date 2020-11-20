@@ -6,15 +6,18 @@ require_once '../db/util.php';
 $nombreP = isset($_POST['nombreP']) ? $_POST['nombreP'] : null;
 $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
 $idPais = isset($_POST['idPais']) ? $_POST['idPais'] : null;
+$idPaisNacimiento = isset($_POST['idPaisNacimiento']) ? $_POST['idPaisNacimiento'] : null;
+$idPaisResidencia = isset($_POST['idPaisResidencia']) ? $_POST['idPaisResidencia'] : null;
 $idsAficiones = isset($_POST['idAficion']) ? $_POST['idAficion'] : null;
+$idsAficionesGusta = isset($_POST['idAficionGusta']) ? $_POST['idAficionGusta'] : null;
+$idsAficionesOdia = isset($_POST['idAficionOdia']) ? $_POST['idAficionOdia'] : null;
 $id = isset($_POST['id']) ? $_POST['id'] : null;
 // print_r($_POST);
 // var_dump($idsAficiones);
 // exit();
 $html = '';
 if($nombreP != null and $id != null and $dni != null and $idPais != null and $idsAficiones != null ) {
-	echo 'asd';
-	if(actualizar($id, $nombreP, $dni, $idPais, $idsAficiones)) {
+	if(actualizar($id, $nombreP, $dni, $idPais, $idPaisNacimiento, $idPaisResidencia, $idsAficiones, $idsAficionesGusta, $idsAficionesOdia)) {
 		header('Location: updatePostOK.php?nombreP='.$nombreP);
 	} else {
 		$html = "El DNI de la Persona no se puede repetir.";
