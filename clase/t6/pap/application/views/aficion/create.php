@@ -25,7 +25,7 @@
 							<input type="submit" value="Guardar" class="btn btn-primary"/>
 						</div>
 						<div class="form-group col-md-6 text-right">
-							<a href="aficiones.php" class="btn btn-secondary"/>Volver</a>
+							<a href="<?=base_url().'aficion'?>" class="btn btn-secondary"/>Volver</a>
 						</div>
 					</div>
 				</form>

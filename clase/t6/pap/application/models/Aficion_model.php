@@ -1,8 +1,7 @@
 <?php
 class Aficion_model extends CI_Model {
 
-	function insertar($nombre){
-    
+	function insert($nombre){
         $bean = R::dispense('aficion');
         R::store($bean);
         $res = true;
@@ -10,7 +9,7 @@ class Aficion_model extends CI_Model {
         return $res;
     }
 
-    function actualizarA($id, $nombre, $idsPersonas){
+    function update($id, $nombre, $idsPersonas){
         $noExiste = (R::findOne('aficion','nombre=? and id <> ?', [$nombre,$id]));
         $res = false;
         $bean = R::load('aficion',$id);
@@ -28,7 +27,16 @@ class Aficion_model extends CI_Model {
         return $res;
     }
 
-    function getAficionById($id){
+    function delete($bean){
+        $res = false;
+        if(R::trash($bean)) {
+            $res = true;
+        }
+
+        return $res;
+    }
+
+    function getBeanById($id){
         $bean = R::load('aficion',$id);
         if($bean->id != 0) {
             $res = $bean;
@@ -39,20 +47,11 @@ class Aficion_model extends CI_Model {
         return $res;
     }
 
-    function getAficionByNombre($nombre){
+    function getBeanByNombre($nombre){
         return  R::​findOne​('aficion','nombre=?',[$nombre]);
     }
 
-    function deleteAficionBean($bean){
-        $res = false;
-        if(R::trash($bean)) {
-            $res = true;
-        }
-
-        return $res;
-    }
-
-    function getAficiones(){
+    function getAll(){
         $rows = R::findAll('aficion');
         return $rows;
     }
@@ -62,13 +61,6 @@ class Aficion_model extends CI_Model {
         return $rows;
     }
 
-    function aficionPersonasToIdsArray($aficion){
-        $arraysIds = [];
-        foreach($aficion->sharedPersonaList as $shared) {
-            $arraysIds[] = $shared->id;
-        }
-        return $arraysIds;
-    }
-}	
+}
 
 ?>

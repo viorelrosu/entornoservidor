@@ -5,29 +5,32 @@ class Aficion extends CI_Controller {
 
 	function aficiones(){
 		$this->load->model('aficion_model');
-		$aficiones = $this->aficion_model->getAficiones();
-		$datos = [];
-		$datos['aficiones'] = $aficiones;
+		$aficiones = $this->aficion_model->getAll();
+		$data = [
+			'view'=>'aficion/index',
+			'aficiones' => $aficiones
+		];
 
-		$this->load->view('aficion/index',$datos);
+		$this->load->view('template',$data);
 	}
 
 
 	public function create()
 	{
-		$datos = [];
-		$this->load->view('aficion/create',$datos);
+		$data = [
+			'view'=>'aficion/create',
+		];
+		$this->load->view('aficion/create',$data);
 	}
 
 	public function createPost()
 	{
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
-		if( $nombre != null and ($this->aficion_model->getAficionByNombre($nombre) == null ) ) {
-			$this->aficion_model->insertar($nombre);
+		if( $nombre != null and ($this->aficion_model->getBeanByNombre($nombre) == null ) ) {
+			$this->aficion_model->insert($nombre);
 			$this->load->view('aficion/create',$datos);
 		}
-		
 		$this->load->view('aficion/error');
 	}
 
