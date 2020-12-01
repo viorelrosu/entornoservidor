@@ -26,8 +26,8 @@
 		  					<input type="hidden" name="id" value="<?= $aficion->id; ?>">
 		  				</form>
 
-		  				<button class="btn btn-info btn-sm" onclick="accion(<?= $aficion->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
-		  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $aficion->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
+		  				<button class="btn btn-info btn-sm" onclick="accion(<?= $aficion->id; ?>,'<?=base_url().'aficion/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $aficion->id; ?>,'<?=base_url().'aficion/delete'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
 		  		</tr>
 		  	<?php endforeach; ?>

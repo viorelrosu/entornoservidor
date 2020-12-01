@@ -7,18 +7,15 @@ class Pais extends CI_Controller {
 		$this->load->model('pais_model');
 		$paises = $this->pais_model->getAll();
 		$datos = [
-			'view'=>'pais/index',
 			'paises' => $paises
 		];
-
-		$this->load->view('template',$datos);
+		frame($this,'pais/index',$datos);
 	}
 
 
 	public function create()
 	{
-		$datos = [ 'view'=>'pais/create' ];
-		$this->load->view('template',$datos);
+		frame($this,'pais/create');
 	}
 
 	public function createPost()
@@ -28,11 +25,11 @@ class Pais extends CI_Controller {
 		if( $nombre != null and ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
 			$this->pais_model->insert($nombre);
 
-			$datos = [ 'view'=>'pais/confirm', 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.' ];
-			$this->load->view('template',$datos);
+			$datos = [ 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.' ];
+			frame($this,'pais/confirm',$datos);
 		} else {
-			$datos = [ 'view'=>'pais/error', 'mensaje'=> 'Ha habido un error.' ];
-			$this->load->view('template',$datos);
+			$datos = [ 'mensaje'=> 'Ha habido un error.' ];
+			frame($this,'pais/error',$datos);
 		}
 	}
 
@@ -44,8 +41,8 @@ class Pais extends CI_Controller {
 			$this->load->model('pais_model');
 			$pais = $this->pais_model->getBeanById($id);
 			if($pais) {
-				$datos = [ 'view'=>'pais/delete', 'pais'=>$pais ];
-				$this->load->view('template',$datos);
+				$datos = [ 'pais'=>$pais ];
+				frame($this,'pais/delete',$datos);
 			} else {
 				$this->index();
 			}
@@ -64,8 +61,8 @@ class Pais extends CI_Controller {
 			$pais = $this->pais_model->getBeanById($id);
 			if($pais) {
 				$this->pais_model->delete($pais);
-				$datos = [ 'view'=>'pais/confirm', 'pais'=>$pais, 'mensaje'=> 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.' ];
-				$this->load->view('template',$datos);
+				$datos = [ 'pais'=>$pais, 'mensaje'=> 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.' ];
+				frame($this,'pais/confirm',$datos);
 			} else {
 				$this->index();
 			}
@@ -81,8 +78,8 @@ class Pais extends CI_Controller {
 			$this->load->model('pais_model');
 			$pais = $this->pais_model->getBeanById($id);
 			if($pais) {
-				$datos = [ 'view'=>'pais/update', 'pais'=>$pais ];
-				$this->load->view('template',$datos);
+				$datos = [ 'pais'=>$pais ];
+				frame($this,'pais/update',$datos);
 			} else {
 				$this->index();
 			}
@@ -99,8 +96,8 @@ class Pais extends CI_Controller {
 
 		if( $id != null and $nombre != null and ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
 			$this->pais_model->update($id, $nombre);
-			$datos = [ 'view'=>'pais/confirm', 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido modificado correctamente.' ];
-			$this->load->view('template',$datos);
+			$datos = [ 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido modificado correctamente.' ];
+			frame($this,'pais/confirm',$datos);
 		} else {
 			$this->index();
 		}

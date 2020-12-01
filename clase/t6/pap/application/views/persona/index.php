@@ -3,7 +3,7 @@
 		<h3>Listado Personas</h3>
 		<hr />
 		<div class="text-right">
-			<a href="createGet.php" class="btn btn-primary">Crear</a>
+			<a href="<?=base_url().'persona/create';?>" class="btn btn-primary">Crear</a>
 		</div>
 
 		<table class="table table-striped mt-5">
@@ -39,8 +39,8 @@
 		  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
 		  				</form>
 
-		  				<button class="btn btn-info btn-sm" onclick="accion(<?= $persona->id; ?>,'updateGet.php');"><i class="fas fa-edit"></i></button>
-		  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $persona->id; ?>,'deleteGet.php');"><i class="fas fa-trash"></i></button>
+		  				<button class="btn btn-info btn-sm" onclick="accion(<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $persona->id; ?>,'<?=base_url().'persona/delete'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
 		  		</tr>
 		  	<?php endforeach; ?>

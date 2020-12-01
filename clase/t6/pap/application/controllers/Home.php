@@ -22,7 +22,6 @@ class Home extends CI_Controller {
 	{
 		// $this->load->helper('mensaje');
 		//$this->load->view('home/index');
-		$data = array('view'=>'home/index');
-		$this->load->view('template',$data);
+		frame($this,'home/index');
 	}
 }

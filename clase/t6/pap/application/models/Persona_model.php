@@ -1,47 +1,33 @@
 <?php
 class Persona_model extends CI_Model {
 
-	function insert($nombreP, $dni, $idPais, $idsAficiones=[]){
-        $res = false;
-        $noExiste = (R::findOne('persona','dni=?', [$dni]));
+	function insert($nombre, $dni, $idPais, $idsAficiones=[]){
+        $bean = R::dispense('persona');
+        $bean->nombre = $nombre;
+        $bean->dni = $dni;
+        $bean->pais = R::load('pais',$idPais);
 
-        if($nombreP != null && $dni != null && $noExiste == null ) {
-            $bean = R::dispense('persona');
-            $bean->nombre = $nombreP;
-            $bean->dni = $dni;
-            $bean->pais = R::load('pais',$idPais);
+        foreach($idsAficiones as $id):
+            $bean->sharedAficionList[] = R::load('aficion',$id);
+        endforeach;
 
-            foreach($idsAficiones as $id):
-                $bean->sharedAficionList[] = R::load('aficion',$id);
-            endforeach;
+        R::store($bean);
 
-            R::store($bean);
-
-            $res = true;
-        }
-
-        return $res;
+        return true;
     }
 
-    function update($id, $nombreP, $dni, $idPais, $idsAficiones=[]){
-        $noExiste = (R::findOne('persona','dni=? and id <> ?', [$dni,$id]));
-        $res = false;
+    function update($id, $nombre, $dni, $idPais, $idsAficiones=[]){
         $bean = R::load('persona',$id);
+        $bean->nombre = $nombre;
+        $bean->dni = $dni;
+        $bean->pais = R::load('pais',$idPais);
+        $bean->sharedPersonaList = [];
+        foreach($idsAficiones as $id):
+            $bean->sharedAficionList[] = R::load('aficion',$id);
+        endforeach;
+        R::store($bean);
 
-        if($bean->id != 0 && $nombreP != null && $dni != null && $idPais != null && $noExiste == null) {
-            $bean->nombre = $nombreP;
-            $bean->dni = $dni;
-            $bean->pais = R::load('pais',$idPais);
-            $bean->sharedPersonaList = [];
-            foreach($idsAficiones as $id):
-                $bean->sharedAficionList[] = R::load('aficion',$id);
-            endforeach;
-            R::store($bean);
-
-            $res = true;
-        }
-
-        return $res;
+        return true;
     }
 
     function delete($bean){
@@ -65,7 +51,15 @@ class Persona_model extends CI_Model {
     }
 
     function getBeanByNombre($nombre){
-        return  R::​findOne​('persona','nombre=?',[$nombre]);
+        return  R::​findOne('persona','nombre=?',[$nombre]);
+    }
+
+    function getBeanByDni($dni){
+        return R::findOne('persona','dni=?',[$dni]);
+    }
+
+    function getBeanByDniAndId($dni,$id) {
+        return (R::findOne('persona','dni=? and id <> ?', [$dni,$id]));
     }
 
     function getAll(){

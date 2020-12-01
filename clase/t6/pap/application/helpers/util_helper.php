@@ -25,9 +25,12 @@
 
 	function arrayBeansToArrayIds($arraysBeans=[]){
         $arraysIds = [];
-        foreach($arraysBeans as $bean) {
-            $arraysIds[] = $bean->id;
+        if( is_array($arraysBeans) and count($arraysBeans)>0 ) {
+        	foreach($arraysBeans as $bean) {
+	            $arraysIds[] = $bean->id;
+	        }
         }
+        
         return $arraysIds;
     }
 
