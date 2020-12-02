@@ -28,7 +28,7 @@ class Persona extends CI_Controller {
 		$paises = $this->pais_model->getAll();
 
 		$datos = [ 'aficiones'=>$aficiones, 'paises' => $paises  ];
-		frame($this,'persona/create',$datos);	
+		frame($this,'persona/create',$datos);
 	}
 
 	public function createPost()
@@ -37,26 +37,30 @@ class Persona extends CI_Controller {
 		$dni = isset($_POST['dni']) ? $_POST['dni'] : null;
 		$idPais = isset($_POST['idPais']) ? $_POST['idPais'] : null;
 		$idsAficiones = isset($_POST['idsAficiones']) ? $_POST['idsAficiones'] : null;
-		
+
 		$this->load->model('persona_model');
 		if( $nombre != null and $dni != null and $idPais != null and $idsAficiones != null) {
-			
+
 			if  ($this->persona_model->getBeanByDni($dni) == null ) {
+
 				$this->persona_model->insert($nombre, $dni, $idPais, $idsAficiones);
-				$datos = [ 'mensaje'=>'La persona <b>'. $nombre .'</b> ha sido creada correctamente.' ];
-				frame($this,'persona/confirm',$datos);
+				$mensaje = 'La persona <b>'. $nombre .'</b> ha sido creada correctamente.';
+				prg('success',$mensaje,'persona/create');
+
 			} else {
-				$datos = [ 'mensaje'=>'Lo siento, ya existe persona con este dni.' ];
-				frame($this,'persona/error',$datos);
+
+				$mensaje = 'Lo siento, ya existe persona con este dni.';
+				prg('error',$mensaje,'persona/create');
+
 			}
 
 		} else {
 
-			$datos = [ 'mensaje'=>'Lo siento, ha habido un error.' ];
-			frame($this,'persona/error',$datos);
-		
+			$mensaje = 'Lo siento, los datos no pueden ser nulos.';
+			prg('error',$mensaje,'persona/create');
+
 		}
-		
+
 	}
 
 	public function update() {
@@ -95,21 +99,21 @@ class Persona extends CI_Controller {
 		$this->load->model('persona_model');
 
 		if( $id != null and $nombre != null and $dni != null and $idPais != null and $idsAficiones != null) {
-			
+
 			if  ($this->persona_model->getBeanByDniAndId($dni,$id) == null ) {
 				$this->persona_model->update($id, $nombre, $dni, $idPais, $idsAficiones);
-				$datos = [ 'mensaje'=>'La persona <b>'. $nombre .'</b> ha sido midificada correctamente.' ];
-				frame($this,'persona/confirm',$datos);
+				$mensaje = 'La persona <b>'. $nombre .'</b> ha sido midificada correctamente.';
+				prg('success',$mensaje,'persona/update');
 			} else {
-				$datos = [ 'mensaje'=>'Lo siento, ya existe persona con este dni.' ];
-				frame($this,'persona/error',$datos);
+				$mensaje = 'Lo siento, ya existe persona con este dni.';
+				prg('error',$mensaje,'persona/update');
 			}
 
 		} else {
 
-			$datos = [ 'mensaje'=>'Lo siento, ha habido un error.' ];
-			frame($this,'persona/error',$datos);
-		
+			$mensaje = 'Lo siento, los datos no pueden ser nulos.';
+			prg('error',$mensaje,'persona/update');
+
 		}
 
 	}
@@ -142,8 +146,8 @@ class Persona extends CI_Controller {
 			$persona = $this->persona_model->getBeanById($id);
 			if($persona) {
 				$this->persona_model->delete($persona);
-				$datos = [ 'persona'=>$persona, 'mensaje'=> 'La afición <b>'.$persona->nombre.'</b> ha sido eliminado correctamente.' ];
-				frame($this,'persona/confirm',$datos);
+				$mensaje = 'La afición <b>'.$persona->nombre.'</b> ha sido eliminado correctamente.';
+				prg('success',$mensaje,'persona');
 			} else {
 				$this->index();
 			}

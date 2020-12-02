@@ -20,19 +20,22 @@
 		  <tbody>
 		  	<?php
 		  		foreach($personas as $persona):
-		  			$sharedAficiones = $persona->sharedAficionList;
+		  			//$sharedAficiones = $persona->sharedAficionList;
+		  			$ownAficionesGusta = $persona->ownGustaList;
+		  			//print_r($ownAficionesGusta);
 
-		  			if( count($sharedAficiones) == 0 ) {
+		  			if( count($ownAficionesGusta) == 0 ) {
 		  				$htmlSharedAficiones = '<span class="badge badge-pill badge-danger">&times;</span>';
 		  			} else {
-		  				$htmlSharedAficiones = getBeansToStringByNombre($sharedAficiones);
+		  				// $htmlSharedAficiones = getBeansToStringByNombre($sharedAficiones);
+		  				$htmlSharedAficiones = getAficionesToStringByNombre($ownAficionesGusta);
 		  			}
 		  	?>
 		  		<tr>
 		  			<td><?= $persona->id; ?></td>
 		  			<td><?= $persona->nombre; ?></td>
 		  			<td><?= $persona->dni; ?></td>
-		  			<td><?= (($persona->pais_id != null) ? $persona->pais->nombre : '--' ); ?></td>
+		  			<td><?= (($persona->pais_nacimiento_id != null) ? $persona->fetchAs('pais')->pais_nacimiento->nombre : '--' ); ?></td>
 		  			<td><?= $htmlSharedAficiones; ?></td>
 		  			<td class="text-right" width="100">
 		  				<form action="updateGet.php" method="post" id="formAccion-<?=$persona->id;?>" >

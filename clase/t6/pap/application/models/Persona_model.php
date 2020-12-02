@@ -1,31 +1,47 @@
 <?php
 class Persona_model extends CI_Model {
 
-	function insert($nombre, $dni, $idPais, $idsAficiones=[]){
+	function insert($nombre, $dni, $idPaisNacimiento, $idsAficiones=[]){
         $bean = R::dispense('persona');
         $bean->nombre = $nombre;
         $bean->dni = $dni;
-        $bean->pais = R::load('pais',$idPais);
-
-        foreach($idsAficiones as $id):
-            $bean->sharedAficionList[] = R::load('aficion',$id);
-        endforeach;
+        $bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
+        //$bean->pais = R::load('pais',$idPais);
 
         R::store($bean);
+
+        foreach($idsAficiones as $id):
+            $gusta = R::dispense('gusta');
+            $gusta->persona = $bean;
+            $gusta->aficion = R::load('aficion',$id);
+            R::store($gusta);
+            //$bean->sharedAficionList[] = R::load('aficion',$id);
+        endforeach;
 
         return true;
     }
 
-    function update($id, $nombre, $dni, $idPais, $idsAficiones=[]){
+    function update($id, $nombre, $dni, $idPaisNacimiento, $idsAficiones=[]){
         $bean = R::load('persona',$id);
         $bean->nombre = $nombre;
         $bean->dni = $dni;
-        $bean->pais = R::load('pais',$idPais);
-        $bean->sharedPersonaList = [];
-        foreach($idsAficiones as $id):
-            $bean->sharedAficionList[] = R::load('aficion',$id);
-        endforeach;
+        // $bean->pais = R::load('pais',$idPais);
+        $bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
+        // $bean->sharedPersonaList = [];
+        // foreach($idsAficiones as $id):
+        //     $bean->sharedAficionList[] = R::load('aficion',$id);
+        // endforeach;
+
         R::store($bean);
+
+        foreach($idsAficiones as $id):
+                $gusta = R::dispense('gusta');
+                $gusta->persona = $bean;
+                $gusta->aficion = R::load('aficion',$id);
+                R::store($gusta);
+        endforeach;
+
+        R::store($gusta);
 
         return true;
     }

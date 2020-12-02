@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pais extends CI_Controller {
 
+	public function index()
+	{
+		$this->paises();
+	}
+
 	function paises(){
 		$this->load->model('pais_model');
 		$paises = $this->pais_model->getAll();
@@ -20,15 +25,20 @@ class Pais extends CI_Controller {
 
 	public function createPost()
 	{
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+
+		// $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+		$nombre = $this->input->post('nombre');
+		$datos = [];
 		$this->load->model('pais_model');
 		if( $nombre != null and ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
 			$this->pais_model->insert($nombre);
 
-			$datos = [ 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.' ];
-			frame($this,'pais/confirm',$datos);
+			$mensaje = 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.';
+			$this->success($mensaje);
+			//frame($this,'pais/confirm',$datos);
 		} else {
-			$datos = [ 'mensaje'=> 'Ha habido un error.' ];
+			$datos['form'] = [ 'nombre'=>$nombre ];
+			$datos['mensaje'] = 'Ha habido un error.';
 			frame($this,'pais/error',$datos);
 		}
 	}
@@ -104,8 +114,9 @@ class Pais extends CI_Controller {
 
 	}
 
-	public function index()
+	public function success($mensaje)
 	{
-		$this->paises();
+		$datos  = array( 'mensaje' => $mensaje);
+		frame($this,'pais/success',$datos);
 	}
 }

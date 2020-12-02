@@ -27,7 +27,7 @@
 						<label for="dni" class="font-weight-bold">Selecciona Aficiones</label><br />
 							<?php
 								foreach($aficiones as $aficion):
-								$checked = (in_array($aficion->id, arrayBeansToArrayIds($persona->sharedAficionList()))) ? 'checked="checked"' : '';
+								$checked = (in_array($aficion->id, arrayBeansToArrayIds($persona->ownGustaList()))) ? 'checked="checked"' : '';
 							?>
 								<input type="checkbox" name="idsAficiones[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
 							<?php endforeach; ?>

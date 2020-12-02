@@ -7,4 +7,5 @@
 		$controller->load->view('_templates/footer.php');
 		$controller->load->view('_templates/end.php');
 	}
+
 ?>
