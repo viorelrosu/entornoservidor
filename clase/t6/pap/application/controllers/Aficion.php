@@ -31,13 +31,18 @@ class Aficion extends CI_Controller {
 	{
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
-		if( $nombre != null and ($this->aficion_model->getBeanByNombre($nombre) == null ) ) {
-			$this->aficion_model->insert($nombre);
-			$datos = [ 'mensaje'=>'La Afición <b>'.$nombre.'</b> ha sido creada correctamente.' ];
-			frame($this,'aficion/confirm',$datos);
+		if( $nombre != null) { 
+			if($this->aficion_model->getBeanByNombre($nombre) == null ) ) {
+				$this->aficion_model->insert($nombre);
+				$mensaje = 'La Afición <b>'.$nombre.'</b> ha sido creada correctamente.';
+				prg('success', $mensaje, 'aficion/create');
+			} else {
+				$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
+			prg('error', $mensaje, 'aficion/create');
+			}
 		} else {
-			$datos = [ 'mensaje'=>'Lo siento, ha habido un error.' ];
-			frame($this,'aficion/error',$datos);
+			$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
+			prg('error', $mensaje, 'aficion/create');
 		}
 		
 	}
