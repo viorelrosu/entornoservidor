@@ -30,16 +30,19 @@ class Pais extends CI_Controller {
 		$nombre = $this->input->post('nombre');
 		$datos = [];
 		$this->load->model('pais_model');
-		if( $nombre != null and ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
-			$this->pais_model->insert($nombre);
+		if( $nombre != null ) {
+			if ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
+				$this->pais_model->insert($nombre);
 
-			$mensaje = 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.';
-			$this->success($mensaje);
-			//frame($this,'pais/confirm',$datos);
+				$mensaje = 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.';
+				prg('success', $mensaje, 'pais/create');
+			} else {
+				$mensaje = 'Ya existe un país con el nombre <b>'.$nombre.'</b>.';
+				prg('error',$mensaje,'pais/create');
+			}
 		} else {
-			$datos['form'] = [ 'nombre'=>$nombre ];
-			$datos['mensaje'] = 'Ha habido un error.';
-			frame($this,'pais/error',$datos);
+			$mensaje = 'El nombre del país no puede ser nulo.';
+			prg('error',$mensaje,'pais/create');
 		}
 	}
 
@@ -71,13 +74,15 @@ class Pais extends CI_Controller {
 			$pais = $this->pais_model->getBeanById($id);
 			if($pais) {
 				$this->pais_model->delete($pais);
-				$datos = [ 'pais'=>$pais, 'mensaje'=> 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.' ];
-				frame($this,'pais/confirm',$datos);
+				$mensaje = 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.';
+				prg('success', $mensaje, 'pais/index');
 			} else {
-				$this->index();
+				$mensaje = 'No se puede dar de baja país.';
+				prg('error', $mensaje, 'pais/index');
 			}
 		} else {
-			$this->index();
+			$mensaje = 'No se puede dar de baja país.';
+			prg('error', $mensaje, 'pais/index');
 		}
 
 	}
@@ -91,10 +96,12 @@ class Pais extends CI_Controller {
 				$datos = [ 'pais'=>$pais ];
 				frame($this,'pais/update',$datos);
 			} else {
-				$this->index();
+				$mensaje = 'No se pueden cargar los datos del país.';
+				prg('error', $mensaje, 'pais/index');
 			}
 		} else {
-			$this->index();
+			$mensaje = 'No se pueden cargar los datos del país.';
+			prg('error', $mensaje, 'pais/index');
 		}
 	}
 
@@ -104,19 +111,20 @@ class Pais extends CI_Controller {
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('pais_model');
 
-		if( $id != null and $nombre != null and ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
-			$this->pais_model->update($id, $nombre);
-			$datos = [ 'mensaje'=> 'El país <b>'.$nombre.'</b> ha sido modificado correctamente.' ];
-			frame($this,'pais/confirm',$datos);
+		if( $id != null and $nombre != null ) { 
+			if ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
+				$this->pais_model->update($id, $nombre);
+				$mensaje = 'El país <b>'.$nombre.'</b> ha sido modificado correctamente.';
+				prg('success', $mensaje, 'pais/index');
+			} else {
+				$mensaje = 'El país <b>'.$nombre.'</b> ya existe.';
+				prg('error', $mensaje, 'pais/index');
+			}
 		} else {
-			$this->index();
+			$mensaje = 'El nombre del país no puede ser null.';
+			prg('error', $mensaje, 'pais/index');
 		}
 
 	}
 
-	public function success($mensaje)
-	{
-		$datos  = array( 'mensaje' => $mensaje);
-		frame($this,'pais/success',$datos);
-	}
 }
