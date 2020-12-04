@@ -31,7 +31,7 @@ class Pais extends CI_Controller {
 		$datos = [];
 		$this->load->model('pais_model');
 		if( $nombre != null ) {
-			if ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
+			if ( $this->pais_model->getBeanByNombre($nombre) == null ) {
 				$this->pais_model->insert($nombre);
 
 				$mensaje = 'El país <b>'.$nombre.'</b> ha sido dado de alta correctamente.';
@@ -72,14 +72,9 @@ class Pais extends CI_Controller {
 		if( $id != null ) {
 			$this->load->model('pais_model');
 			$pais = $this->pais_model->getBeanById($id);
-			if($pais) {
-				$this->pais_model->delete($pais);
-				$mensaje = 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.';
-				prg('success', $mensaje, 'pais/index');
-			} else {
-				$mensaje = 'No se puede dar de baja país.';
-				prg('error', $mensaje, 'pais/index');
-			}
+			$this->pais_model->delete($pais);
+			$mensaje = 'El país <b>'.$pais->nombre.'</b> ha sido eliminado correctamente.';
+			prg('success', $mensaje, 'pais/index');
 		} else {
 			$mensaje = 'No se puede dar de baja país.';
 			prg('error', $mensaje, 'pais/index');
@@ -111,8 +106,8 @@ class Pais extends CI_Controller {
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('pais_model');
 
-		if( $id != null and $nombre != null ) { 
-			if ($this->pais_model->getBeanByNombre($nombre) == null ) ) {
+		if( $id != null and $nombre != null ) {
+			if ($this->pais_model->getBeanByNombre($nombre) == null ) {
 				$this->pais_model->update($id, $nombre);
 				$mensaje = 'El país <b>'.$nombre.'</b> ha sido modificado correctamente.';
 				prg('success', $mensaje, 'pais/index');

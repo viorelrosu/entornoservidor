@@ -51,12 +51,6 @@
 		</table>
 	</div>
 </div>
-<div class="row mt-5">
-	<div class="col text-right">
-		<hr>
-		<a href="<?=base_url();?>" class="btn btn-secondary">Volver a Inicio</a>
-	</div>
-</div>
 <script>
 	function accion(id, tipo) {
 		var form = document.getElementById('formAccion-'+id);

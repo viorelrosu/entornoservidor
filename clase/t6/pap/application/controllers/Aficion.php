@@ -23,7 +23,6 @@ class Aficion extends CI_Controller {
 
 	public function create()
 	{
-		$data = [];
 		frame($this,'aficion/create');
 	}
 
@@ -31,20 +30,20 @@ class Aficion extends CI_Controller {
 	{
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
-		if( $nombre != null) { 
-			if($this->aficion_model->getBeanByNombre($nombre) == null ) ) {
+		if( $nombre != null) {
+			if($this->aficion_model->getBeanByNombre($nombre) == null ) {
 				$this->aficion_model->insert($nombre);
-				$mensaje = 'La Afición <b>'.$nombre.'</b> ha sido creada correctamente.';
-				prg('success', $mensaje, 'aficion/create');
+				//$mensaje = 'La Afición <b>'.$nombre.'</b> ha sido creada correctamente.';
+				//prg('success', $mensaje, 'aficion/create');
+				redirect(base_url().'aficion/index');
 			} else {
 				$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
-			prg('error', $mensaje, 'aficion/create');
+				prg('error', $mensaje, 'aficion/create');
 			}
 		} else {
 			$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
 			prg('error', $mensaje, 'aficion/create');
 		}
-		
 	}
 
 	public function delete()
@@ -58,10 +57,12 @@ class Aficion extends CI_Controller {
 				$datos = [ 'aficion'=>$aficion ];
 				frame($this,'aficion/delete',$datos);
 			} else {
-				$this->index();
+				$mensaje = 'No se han podido cargar los datos de la afición.';
+				prg('error', $mensaje, 'aficion/index');
 			}
 		} else {
-			$this->index();
+			$mensaje = 'No se han podido cargar los datos de la afición.';
+			prg('error', $mensaje, 'aficion/index');
 		}
 
 	}
@@ -73,15 +74,12 @@ class Aficion extends CI_Controller {
 		if( $id != null ) {
 			$this->load->model('aficion_model');
 			$aficion = $this->aficion_model->getBeanById($id);
-			if($aficion) {
-				$this->aficion_model->delete($aficion);
-				$datos = [ 'aficion'=>$aficion, 'mensaje'=> 'La afición <b>'.$aficion->nombre.'</b> ha sido eliminado correctamente.' ];
-				frame($this,'aficion/confirm',$datos);
-			} else {
-				$this->index();
-			}
+			$this->aficion_model->delete($aficion);
+			$mensaje = 'La afición <b>'.$aficion->nombre.'</b> ha sido eliminado correctamente.';
+			prg('success', $mensaje, 'aficion/index');
 		} else {
-			$this->index();
+			$mensaje = 'No se han podido cargar los datos de la afición.';
+			prg('error', $mensaje, 'aficion/index');
 		}
 
 	}
@@ -95,10 +93,12 @@ class Aficion extends CI_Controller {
 				$datos = [ 'aficion'=>$aficion ];
 				frame($this,'aficion/update',$datos);
 			} else {
-				$this->index();
+				$mensaje = 'No se han podido cargar los datos de la afición.';
+				prg('error', $mensaje, 'aficion/index');
 			}
 		} else {
-			$this->index();
+			$mensaje = 'No se han podido cargar los datos de la afición.';
+			prg('error', $mensaje, 'aficion/index');
 		}
 	}
 
@@ -108,13 +108,18 @@ class Aficion extends CI_Controller {
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
 
-		if( $id != null and $nombre != null and ($this->aficion_model->getBeanByNombreAndId($nombre, $id) == null ) ) {
-			$this->aficion_model->update($id, $nombre);
-			$datos = [ 'mensaje'=> 'La afición <b>'.$nombre.'</b> ha sido modificado correctamente.' ];
-			frame($this,'aficion/confirm',$datos);
+		if( $id != null and $nombre != null) {
+			if($this->aficion_model->getBeanByNombreAndId($nombre, $id) == null ) {
+				$this->aficion_model->update($id, $nombre);
+				$mensaje = 'La afición <b>'.$nombre.'</b> ha sido modificado correctamente.';
+				prg('success', $mensaje, 'aficion/index');
+			} else {
+				$mensaje = 'No se han podido cargar los datos de la afición.';
+				prg('error', $mensaje, 'aficion/index');
+			}
 		} else {
-			$datos = [ 'mensaje'=> 'Lo siento, ha habido un error.' ];
-			frame($this,'aficion/error',$datos);
+			$mensaje = 'EL nombre de la afición no puede ser nulo.';
+			prg('error', $mensaje, 'aficion/index');
 		}
 
 	}

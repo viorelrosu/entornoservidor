@@ -5,10 +5,16 @@ class Persona_model extends CI_Model {
         $bean = R::dispense('persona');
         $bean->nombre = $nombre;
         $bean->dni = $dni;
-        $bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
+        //$bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
         //$bean->pais = R::load('pais',$idPais);
-
         R::store($bean);
+
+        $pais = R::load('pais',$idPaisNacimiento);
+        $pais->alias('pais_nacimiento')->ownPersonaList[] = $bean;
+
+        //para borrar en cascada
+        //$pais->alias('pais_nacimiento')->xownPersonaList[] = $bean;
+        R::store($pais);
 
         foreach($idsAficiones as $id):
             $gusta = R::dispense('gusta');
@@ -18,7 +24,6 @@ class Persona_model extends CI_Model {
             //$bean->sharedAficionList[] = R::load('aficion',$id);
         endforeach;
 
-        return true;
     }
 
     function update($id, $nombre, $dni, $idPaisNacimiento, $idsAficiones=[]){
@@ -43,27 +48,18 @@ class Persona_model extends CI_Model {
 
         R::store($gusta);
 
-        return true;
+    }
+
+    function deleteById($id){
+        R::trash(R::load('persona',$id));
     }
 
     function delete($bean){
-        $res = false;
-        if(R::trash($bean)) {
-            $res = true;
-        }
-
-        return $res;
+        R::trash($bean);
     }
 
     function getBeanById($id){
-        $bean = R::load('persona',$id);
-        if($bean->id != 0) {
-            $res = $bean;
-        } else {
-            $res = false;
-        }
-
-        return $res;
+        return R::load('persona',$id);
     }
 
     function getBeanByNombre($nombre){
@@ -75,17 +71,15 @@ class Persona_model extends CI_Model {
     }
 
     function getBeanByDniAndId($dni,$id) {
-        return (R::findOne('persona','dni=? and id <> ?', [$dni,$id]));
+        return R::findOne('persona','dni=? and id <> ?', [$dni,$id]);
     }
 
     function getAll(){
-        $rows = R::findAll('persona');
-        return $rows;
+        return R::findAll('persona');
     }
 
     function getAllSinPais(){
-        $rows = R::find('persona','pais_id is NULL');
-        return $rows;
+        return R::find('persona','pais_id is NULL');
     }
 }
 

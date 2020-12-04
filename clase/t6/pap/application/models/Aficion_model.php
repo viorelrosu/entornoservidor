@@ -5,8 +5,6 @@ class Aficion_model extends CI_Model {
         $bean = R::dispense('aficion');
         $bean->nombre = $nombre;
         R::store($bean);
-
-        return true;
     }
 
     function update($id, $nombre){
@@ -14,28 +12,18 @@ class Aficion_model extends CI_Model {
         $bean = R::load('aficion',$id);
         $bean->nombre = $nombre;
         R::store($bean);
+    }
 
-        return true;
+    function deleteById($id){
+        R::trash(R::load('aficion',$id));
     }
 
     function delete($bean){
-        $res = false;
-        if(R::trash($bean)) {
-            $res = true;
-        }
-
-        return $res;
+        R::trash($bean);
     }
 
     function getBeanById($id){
-        $bean = R::load('aficion',$id);
-        if($bean->id != 0) {
-            $res = $bean;
-        } else {
-            $res = false;
-        }
-
-        return $res;
+        return R::load('aficion',$id);
     }
 
     function getBeanByNombre($nombre){
@@ -47,13 +35,11 @@ class Aficion_model extends CI_Model {
     }
 
     function getAll(){
-        $rows = R::findAll('aficion');
-        return $rows;
+        return R::findAll('aficion');
     }
 
     function getAllSinPersona() {
-        $rows = R::find('aficion','persona_id is NULL');
-        return $rows;
+        return R::find('aficion','persona_id is NULL');
     }
 
 }

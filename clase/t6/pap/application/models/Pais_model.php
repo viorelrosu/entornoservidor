@@ -17,24 +17,16 @@ class Pais_model extends CI_Model {
         return true;
     }
 
-    function delete($pais){
-        $res = false;
-        if(R::trash($pais)) {
-            $res = true;
-        }
+    function deleteById($id){
+        R::trash(R::load('pais',$id));
+    }
 
-        return $res;
+    function delete($bean){
+        R::trash($bean);
     }
 
     function getBeanById($id){
-        $pais = R::load('pais',$id);
-        if($pais->id != 0) {
-            $res = $pais;
-        } else {
-            $res = false;
-        }
-
-        return $res;
+        return R::load('pais',$id);
     }
 
     function getBeanByNombre($nombre){
@@ -42,8 +34,7 @@ class Pais_model extends CI_Model {
     }
 
     function getAll(){
-        $paises = R::findAll('pais');
-        return $paises;
+        return R::findAll('pais');
     }
 }
 

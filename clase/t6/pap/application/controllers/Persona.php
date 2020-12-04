@@ -129,10 +129,12 @@ class Persona extends CI_Controller {
 				$datos = [ 'persona'=>$persona ];
 				frame($this,'persona/delete',$datos);
 			} else {
-				$this->index();
+				$mensaje = 'Lo siento, datos insuficientes.';
+				prg('error',$mensaje,'persona/index');
 			}
 		} else {
-			$this->index();
+			$mensaje = 'Lo siento, datos insuficientes.';
+			prg('error',$mensaje,'persona/index');
 		}
 
 	}
@@ -144,15 +146,12 @@ class Persona extends CI_Controller {
 		if( $id != null ) {
 			$this->load->model('persona_model');
 			$persona = $this->persona_model->getBeanById($id);
-			if($persona) {
-				$this->persona_model->delete($persona);
-				$mensaje = 'La afición <b>'.$persona->nombre.'</b> ha sido eliminado correctamente.';
-				prg('success',$mensaje,'persona');
-			} else {
-				$this->index();
-			}
+			$this->persona_model->delete($persona);
+			$mensaje = 'La afición <b>'.$persona->nombre.'</b> ha sido eliminado correctamente.';
+			prg('success',$mensaje,'persona');
 		} else {
-			$this->index();
+			$mensaje = 'Lo siento, datos insuficientes.';
+			prg('error',$mensaje,'persona/index');
 		}
 
 	}

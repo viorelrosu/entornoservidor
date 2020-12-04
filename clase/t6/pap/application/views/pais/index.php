@@ -43,5 +43,3 @@
 			</table>
 	</div>
 </div>
-
-<?=volver('','Volver a Inicio')?>
