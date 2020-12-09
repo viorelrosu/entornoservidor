@@ -2,6 +2,14 @@
 class Aficion_model extends CI_Model {
 
 	function insert($nombre){
+        if( $nombre != null) {
+            throw new Exception('EL nombre de la afición no puede ser nulo.');
+        }
+
+        if(getBeanByNombre($nombre) != null ) {
+            throw new Exception('Ya existe una afición ('.$nombre.').');
+        }
+
         $bean = R::dispense('aficion');
         $bean->nombre = $nombre;
         R::store($bean);

@@ -19,7 +19,7 @@
 						<label for="idPais" class="font-weight-bold">Selecciona País</label><br />
 						<select name="idPais" class="form-control">
 							<?php foreach($paises as $pais): ?>
-								<option value="<?=$pais->id?>" <?php echo ($persona->pais_id == $pais->id)? 'selected':''?>><?=$pais->nombre;?></option>
+								<option value="<?=$pais->id?>" <?= ($persona->pais_nacimiento_id == $pais->id)? 'selected="selected"':''?>><?=$pais->nombre;?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
@@ -27,7 +27,8 @@
 						<label for="dni" class="font-weight-bold">Selecciona Aficiones</label><br />
 							<?php
 								foreach($aficiones as $aficion):
-								$checked = (in_array($aficion->id, arrayBeansToArrayIds($persona->ownGustaList()))) ? 'checked="checked"' : '';
+								//$checked = (in_array($aficion->id, arrayAficionesToArrayIds($persona->ownGustaList) ) ) ? 'checked="checked"' : '';
+								$checked = ( personaTieneAficion($persona,$aficion) ) ? 'checked="checked"' : '';
 							?>
 								<input type="checkbox" name="idsAficiones[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
 							<?php endforeach; ?>

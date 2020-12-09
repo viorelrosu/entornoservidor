@@ -38,12 +38,12 @@
 		  			<td><?= (($persona->pais_nacimiento_id != null) ? $persona->fetchAs('pais')->pais_nacimiento->nombre : '--' ); ?></td>
 		  			<td><?= $htmlSharedAficiones; ?></td>
 		  			<td class="text-right" width="100">
-		  				<form action="updateGet.php" method="post" id="formAccion-<?=$persona->id;?>" >
+		  				<form action="" method="get" id="formAccion-<?=$persona->id;?>" >
 		  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
 		  				</form>
 
-		  				<button class="btn btn-info btn-sm" onclick="accion(<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
-			  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $persona->id; ?>,'<?=base_url().'persona/delete'?>');"><i class="fas fa-trash"></i></button>
+		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $persona->id; ?>,'<?=base_url().'persona/delete'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
 		  		</tr>
 		  	<?php endforeach; ?>

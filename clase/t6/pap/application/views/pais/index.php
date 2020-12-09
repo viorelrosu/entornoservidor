@@ -34,8 +34,8 @@
 			  					<input type="hidden" name="id" value="<?= $pais->id; ?>">
 			  				</form>
 
-			  				<button class="btn btn-info btn-sm" onclick="accion(<?= $pais->id; ?>,'<?=base_url().'pais/update'?>');"><i class="fas fa-edit"></i></button>
-			  				<button class="btn btn-danger btn-sm" onclick="accion(<?= $pais->id; ?>,'<?=base_url().'pais/delete'?>');"><i class="fas fa-trash"></i></button>
+			  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $pais->id; ?>,'<?=base_url().'pais/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $pais->id; ?>,'<?=base_url().'pais/delete'?>');"><i class="fas fa-trash"></i></button>
 			  			</td>
 			  		</tr>
 			  	<?php endforeach; ?>

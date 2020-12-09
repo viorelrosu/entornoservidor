@@ -30,20 +30,15 @@ class Aficion extends CI_Controller {
 	{
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
-		if( $nombre != null) {
-			if($this->aficion_model->getBeanByNombre($nombre) == null ) {
-				$this->aficion_model->insert($nombre);
-				//$mensaje = 'La Afición <b>'.$nombre.'</b> ha sido creada correctamente.';
-				//prg('success', $mensaje, 'aficion/create');
-				redirect(base_url().'aficion/index');
-			} else {
-				$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
-				prg('error', $mensaje, 'aficion/create');
-			}
-		} else {
-			$datos = [ 'mensaje'=>'EL nombre de la afición no puede ser nulo.' ];
-			prg('error', $mensaje, 'aficion/create');
+		
+		try{
+			$this->aficion_model->insert($nombre);
+			redirect(base_url().'aficion/index');
 		}
+		catch(Exception $e){
+			prg('error', $e->getMessage(), 'aficion/create');
+		}
+			
 	}
 
 	public function delete()

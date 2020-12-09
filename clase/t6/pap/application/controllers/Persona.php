@@ -64,7 +64,7 @@ class Persona extends CI_Controller {
 	}
 
 	public function update() {
-		$id = isset($_POST['id']) ? $_POST['id'] : null;
+		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 		$this->load->model('aficion_model');
 		$aficiones = $this->aficion_model->getAll();
@@ -72,21 +72,16 @@ class Persona extends CI_Controller {
 		$this->load->model('pais_model');
 		$paises = $this->pais_model->getAll();
 
-		$datos = [ 'aficiones'=>$aficiones, 'paises' => $paises ];
+		$this->load->model('persona_model');
+		$persona = $this->persona_model->getBeanById($id);
 
-		if($id != null) {
-			$this->load->model('persona_model');
-			$persona = $this->persona_model->getBeanById($id);
+		$datos = [
+			'aficiones'=>$aficiones,
+			'paises' => $paises,
+			'persona' => $persona
+		];
 
-			if($persona) {
-				$datos['persona'] = $persona;
-				frame($this,'persona/update',$datos);
-			} else {
-				$this->index();
-			}
-		} else {
-			$this->index();
-		}
+		frame($this,'persona/update',$datos);
 	}
 
 	public function updatePost()

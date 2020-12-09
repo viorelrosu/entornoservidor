@@ -52,6 +52,29 @@
         return $arraysIds;
     }
 
+    function arrayAficionesToArrayIds($arraysBeans=[]){
+        $arraysIds = [];
+        if( is_array($arraysBeans) and count($arraysBeans)>0 ) {
+        	foreach($arraysBeans as $bean) {
+	            $arraysIds[] = $bean->aficion->id;
+	        }
+        }
+
+        return $arraysIds;
+    }
+
+    function personaTieneAficion($persona,$aficion){
+    	$arrayAficiones = $persona->ownGustaList;
+    	$arrayIds = [];
+        if( is_array($arrayAficiones) and count($arrayAficiones)>0 ) {
+        	foreach($arrayAficiones as $bean) {
+	            $arrayIds[] = $bean->aficion->id;
+	        }
+        }
+
+    	return in_array($aficion->id, $arrayIds);
+    }
+
     function volver($link,$text='Volver') {
     	$url = base_url().$link;
     	$html = '<div class="row mt-5">';
