@@ -22,12 +22,12 @@
 		  			<td><?= $aficion->id; ?></td>
 		  			<td><?= $aficion->nombre; ?></td>
 		  			<td class="text-right">
-		  				<form action="updateGet.php" method="post" id="formAccion-<?=$aficion->id;?>" >
+		  				<form action="" method="post" id="formAccion-<?= $aficion->id;?>" >
 		  					<input type="hidden" name="id" value="<?= $aficion->id; ?>">
 		  				</form>
 
-		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $aficion->id; ?>,'<?=base_url().'aficion/update/'.$aficion->id;?>');"><i class="fas fa-edit"></i></button>
-			  				<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $aficion->id; ?>,'<?=base_url().'aficion/delete'?>');"><i class="fas fa-trash"></i></button>
+		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $aficion->id; ?>,'<?=base_url().'aficion/update/';?>');"><i class="fas fa-edit"></i></button>
+			  			<button class="btn btn-danger btn-sm" onclick="accion('get',<?= $aficion->id; ?>,'<?=base_url().'aficion/delete/'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
 		  		</tr>
 		  	<?php endforeach; ?>

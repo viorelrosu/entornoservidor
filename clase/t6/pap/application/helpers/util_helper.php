@@ -64,15 +64,14 @@
     }
 
     function personaTieneAficion($persona,$aficion){
-    	$arrayAficiones = $persona->ownGustaList;
-    	$arrayIds = [];
-        if( is_array($arrayAficiones) and count($arrayAficiones)>0 ) {
-        	foreach($arrayAficiones as $bean) {
-	            $arrayIds[] = $bean->aficion->id;
-	        }
+    	$sol = false;
+    	foreach($persona->ownGustaList as $bean) {
+            if ($bean->aficion->id == $aficion->id){
+            	$sol = true;
+            };
         }
 
-    	return in_array($aficion->id, $arrayIds);
+    	return $sol;
     }
 
     function volver($link,$text='Volver') {

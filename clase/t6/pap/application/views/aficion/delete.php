@@ -7,7 +7,7 @@
 	<div class="col">
 		<div class="alert alert-warning" role="alert">
 	  		¿Estás seguro de eliminar esta afición: <b><?=$aficion->nombre; ?></b>?
-	  		<br /><hr /><button class="btn btn-danger" onclick="accion(<?= $aficion->id; ?>,'<?=base_url().'aficion/deletePost'?>');">Eliminar</button>
+	  		<br /><hr /><button class="btn btn-danger" onclick="accion('post', <?= $aficion->id; ?>,'<?=base_url().'aficion/deletePost'?>');">Eliminar</button>
 		</div>
 	</div>
 </div>

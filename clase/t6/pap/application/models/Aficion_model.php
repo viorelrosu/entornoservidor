@@ -2,11 +2,11 @@
 class Aficion_model extends CI_Model {
 
 	function insert($nombre){
-        if( $nombre != null) {
+        if( $nombre == null) {
             throw new Exception('EL nombre de la afición no puede ser nulo.');
         }
 
-        if(getBeanByNombre($nombre) != null ) {
+        if($this->getBeanByNombre($nombre) != null ) {
             throw new Exception('Ya existe una afición ('.$nombre.').');
         }
 
@@ -16,13 +16,29 @@ class Aficion_model extends CI_Model {
     }
 
     function update($id, $nombre){
-        $res = false;
+
+        if( $id == null) {
+            throw new Exception('No se han podido cargar los datos.');
+        }
+
+        if( $nombre == null) {
+            throw new Exception('El nombre de la afición no puede ser nulo.');
+        }
+
+        if($this->getBeanByNombreAndId($nombre, $id) != null ) {
+            throw new Exception('Ya existe una afición ('.$nombre.').');
+        }
+
         $bean = R::load('aficion',$id);
         $bean->nombre = $nombre;
         R::store($bean);
     }
 
     function deleteById($id){
+        if( $id == null) {
+            throw new Exception('No se han podido cargar los datos.');
+        }
+
         R::trash(R::load('aficion',$id));
     }
 
@@ -31,6 +47,9 @@ class Aficion_model extends CI_Model {
     }
 
     function getBeanById($id){
+        if( $id == null) {
+            throw new Exception('No se han podido cargar los datos.');
+        }
         return R::load('aficion',$id);
     }
 
