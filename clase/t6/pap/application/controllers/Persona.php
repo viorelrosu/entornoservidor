@@ -31,13 +31,14 @@ class Persona extends CI_Controller {
 	{
 		$nombre = $this->input->post('nombre');
 		$dni = $this->input->post('dni');
+		$pass = $this->input->post('password');
 		$idPais = $this->input->post('idPais');
 		$idsAficiones = $this->input->post('idsAficiones');
 
 		try {
 
 			$this->load->model('persona_model');
-			$this->persona_model->insert($nombre, $dni, $idPais, $idsAficiones);
+			$this->persona_model->insert($nombre, $dni, $pass, $idPais, $idsAficiones);
 			$mensaje = 'La persona <b>'. $nombre .'</b> ha sido creada correctamente.';
 			prg('success',$mensaje,'persona/create');
 
@@ -120,7 +121,7 @@ class Persona extends CI_Controller {
 		//$id = isset($_POST['id']) ? $_POST['id'] : null;
 		$id = $this->input->post('id');
 
-		if( $id != null ) {
+		try {
 			$this->load->model('persona_model');
 			$persona = $this->persona_model->getBeanById($id);
 			$this->persona_model->delete($persona);

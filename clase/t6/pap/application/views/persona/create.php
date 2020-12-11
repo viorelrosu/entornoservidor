@@ -15,6 +15,10 @@
 						<input type="text" class="form-control" id="dni" name="dni" value="" />
 					</div>
 					<div class="form-group">
+						<label for="password" class="font-weight-bold">Introduce Contraseña</label><br />
+						<input type="password" class="form-control" id="password" name="password" value="" />
+					</div>
+					<div class="form-group">
 						<label for="dni" class="font-weight-bold">Selecciona País</label><br />
 						<select name="idPais" class="form-control">
 							<?php foreach($paises as $pais): ?>

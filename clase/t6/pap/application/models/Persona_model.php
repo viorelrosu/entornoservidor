@@ -1,7 +1,7 @@
 <?php
 class Persona_model extends CI_Model {
 
-	function insert($nombre, $dni, $idPaisNacimiento, $idsAficiones=[]){
+	function insert($nombre, $dni, $pass, $idPaisNacimiento, $idsAficiones=[]){
 
         if( $nombre == null and $dni == null and $idPais == null and $idsAficiones == null) {
             throw new Exception("El nombre, dni, país y aficiones no pueden ser null.");
@@ -14,6 +14,7 @@ class Persona_model extends CI_Model {
         $bean = R::dispense('persona');
         $bean->nombre = $nombre;
         $bean->dni = $dni;
+        $bean->password = password_hash($pass, PASSWORD_DEFAULT);
         //$bean->pais_nacimiento = R::load('pais',$idPaisNacimiento);
         //$bean->pais = R::load('pais',$idPais);
         R::store($bean);
@@ -62,21 +63,27 @@ class Persona_model extends CI_Model {
         //     $bean->sharedAficionList[] = R::load('aficion',$id);
         // endforeach;
 
+        $idAficionComunes = [];
         //quitamos las aficiones que ya no están
-        foreach($persona->ownAficionList as $beanAficion) {
-            if(!in_array($beanAficion->id, $idsAficiones)) {
-                unset($persona->ownAficionList[$beanAficion->id]);
+        foreach($persona->ownGustaList as $gustoActual) :
+            if(in_array($gustoActual->aficion->id,$idsAficiones)) {
+               //gustos que tengo que seguir teniendo
+                $idAficionComunes[] = $gustoActual->aficion->id;
+            } else {
+                R::store($persona); //parche
+                R::trash($gustoActual);
             }
-        }
+        endforeach;
 
         //añadimos las aficiones nuevas
-        foreach($idsAficiones as $id):
-            $aficion = R::load('aficion',$id);
-            if(!in_array($aficion,$persona->ownAficionList))
+        foreach($idsAficiones as $aficionNuevo):
+            if(!in_array($aficionNuevo->id,$idAficionComunes)) {
                 $gusta = R::dispense('gusta');
                 $gusta->persona = $persona;
-                $gusta->aficion = $aficion;
+                $gusta->aficion = R::load('aficion',$aficionNuevo->id);
+                R::store($persona); //parche
                 R::store($gusta);
+            }
         endforeach;
 
     }
@@ -90,6 +97,19 @@ class Persona_model extends CI_Model {
 
     function delete($bean){
         R::trash($bean);
+    }
+
+    function login($dni,$pass){
+        $persona = $this->getBeanByDni($dni);
+        if($persona == null) {
+            throw new Exception("Usuario no existe");
+        }
+        $passHash = password_hash($pass);
+        if(!password_verify($pass, $persona->password) {
+            throw new Exception("Password incorrecto");
+        }
+
+        return $persona;
     }
 
     function getBeanById($id){
