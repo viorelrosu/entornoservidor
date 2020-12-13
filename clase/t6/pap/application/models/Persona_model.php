@@ -50,7 +50,7 @@ class Persona_model extends CI_Model {
         $persona->nombre = $nombre;
         $persona->dni = $dni;
         $persona->pais_nacimiento = null;
-        R::store($bean);
+        R::store($persona);
 
         //asociamos el pais
         $pais = R::load('pais',$idPaisNacimiento);
@@ -76,11 +76,11 @@ class Persona_model extends CI_Model {
         endforeach;
 
         //añadimos las aficiones nuevas
-        foreach($idsAficiones as $aficionNuevo):
-            if(!in_array($aficionNuevo->id,$idAficionComunes)) {
+        foreach($idsAficiones as $idAficionNueva):
+            if(!in_array($idAficionNueva,$idAficionComunes)) {
                 $gusta = R::dispense('gusta');
                 $gusta->persona = $persona;
-                $gusta->aficion = R::load('aficion',$aficionNuevo->id);
+                $gusta->aficion = R::load('aficion',$idAficionNueva);
                 R::store($persona); //parche
                 R::store($gusta);
             }
