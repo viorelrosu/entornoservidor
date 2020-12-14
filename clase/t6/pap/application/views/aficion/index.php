@@ -1,17 +1,19 @@
 <div class="row mt-5">
 	<div class="col">
 		<h3>Listado Aficiones</h3>
-		<hr />
-		<div class="text-right">
-			<a href="<?=base_url()?>aficion/create" class="btn btn-primary">Crear</a>
-		</div>
-
+		<?php if(isRolValid('usuario')):?>
+			<div class="text-right">
+				<a href="<?=base_url()?>aficion/create" class="btn btn-primary">Crear</a>
+			</div>
+		<?php endif; ?>
 		<table class="table table-striped mt-5">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
 		      <th scope="col">Afición</th>
-		      <th scope="col" class="text-right">Acción</th>
+		      <?php if(isRolValid('usuario')):?>
+			      <th scope="col" class="text-right">Acción</th>
+			  <?php endif; ?>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -21,6 +23,7 @@
 		  		<tr>
 		  			<td><?= $aficion->id; ?></td>
 		  			<td><?= $aficion->nombre; ?></td>
+		  			<?php if(isRolValid('usuario')):?>
 		  			<td class="text-right">
 		  				<form action="" method="post" id="formAccion-<?= $aficion->id;?>" >
 		  					<input type="hidden" name="id" value="<?= $aficion->id; ?>">
@@ -29,6 +32,7 @@
 		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $aficion->id; ?>,'<?=base_url().'aficion/update/';?>');"><i class="fas fa-edit"></i></button>
 			  			<button class="btn btn-danger btn-sm" onclick="accion('get',<?= $aficion->id; ?>,'<?=base_url().'aficion/delete/'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
+		  		<?php endif; ?>
 		  		</tr>
 		  	<?php endforeach; ?>
 		  </tbody>

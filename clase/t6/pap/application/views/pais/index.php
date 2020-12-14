@@ -1,17 +1,20 @@
 <div class="row mt-5">
 	<div class="col">
 		<h3>Listado Países</h3>
-			<hr />
-			<div class="text-right">
-				<a href="<?=base_url().'pais/create'?>" class="btn btn-primary">Crear</a>
-			</div>
+			<?php if(isRolValid('usuario')):?>
+				<div class="text-right">
+					<a href="<?=base_url().'pais/create'?>" class="btn btn-primary">Crear</a>
+				</div>
+			<?php endif; ?>
 			<table class="table table-striped mt-5">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
 			      <th scope="col">País</th>
 			      <th scope="col">Personas</th>
+			      <?php if(isRolValid('usuario')):?>
 			      <th scope="col" class="text-right">Acción</th>
+			  <?php endif; ?>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -28,6 +31,7 @@
 			  			<td><?= $pais->id; ?></td>
 			  			<td><?= $pais->nombre; ?></td>
 			  			<td><?= $htmlOwnPersonas; ?></td>
+			  			<?php if(isRolValid('usuario')):?>
 			  			<td class="text-right">
 			  				<form action="" method="post" id="formAccion-<?=$pais->id;?>" >
 			  					<input type="hidden" name="id" value="<?= $pais->id; ?>">
@@ -36,6 +40,7 @@
 			  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $pais->id; ?>,'<?=base_url().'pais/update/';?>');"><i class="fas fa-edit"></i></button>
 			  				<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $pais->id; ?>,'<?=base_url().'pais/deletePost/'?>');"><i class="fas fa-trash"></i></button>
 			  			</td>
+			  		<?php endif; ?>
 			  		</tr>
 			  	<?php endforeach; ?>
 			  </tbody>

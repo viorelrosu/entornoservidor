@@ -105,7 +105,7 @@ class Persona_model extends CI_Model {
             throw new Exception("Usuario no existe");
         }
         $passHash = password_hash($pass);
-        if(!password_verify($pass, $persona->password) {
+        if(!password_verify($pass, $persona->password) ) {
             throw new Exception("Password incorrecto");
         }
 

@@ -16,11 +16,18 @@ class Pais extends CI_Controller {
 
 	public function create()
 	{
+		if(!isRolValid('usuario')) {
+			prg('error','No tienes permisos.');
+		}
 		frame($this,'pais/create');
 	}
 
 	public function createPost()
 	{
+
+		if(!isRolValid('usuario')) {
+			prg('error','No tienes permisos.');
+		}
 
 		// $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$nombre = $this->input->post('nombre');
@@ -36,6 +43,10 @@ class Pais extends CI_Controller {
 	}
 
 	public function update() {
+		if(!isRolValid('usuario')) {
+			prg('error','No tienes permisos.');
+		}
+
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 		try {
 			$this->load->model('pais_model');
@@ -49,6 +60,11 @@ class Pais extends CI_Controller {
 
 	public function updatePost()
 	{
+
+		if(!isRolValid('usuario')) {
+			prg('error','No tienes permisos.');
+		}
+
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 
@@ -65,6 +81,11 @@ class Pais extends CI_Controller {
 
 	// public function delete()
 	// {
+
+		// if(!isRolValid('usuario')) {
+		// 	prg('error','No tienes permisos.');
+		// }
+
 	// 	$id = isset($_POST['id']) ? $_POST['id'] : null;
 
 	// 	if( $id != null ) {
@@ -84,6 +105,11 @@ class Pais extends CI_Controller {
 
 	public function deletePost()
 	{
+
+		if(!isRolValid('usuario')) {
+			prg('error','No tienes permisos.');
+		}
+
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 
 		try {

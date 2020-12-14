@@ -17,6 +17,11 @@ class Persona extends CI_Controller {
 
 	public function create()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$this->load->model('aficion_model');
 		$aficiones = $this->aficion_model->getAll();
 
@@ -29,6 +34,11 @@ class Persona extends CI_Controller {
 
 	public function createPost()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$nombre = $this->input->post('nombre');
 		$dni = $this->input->post('dni');
 		$pass = $this->input->post('password');
@@ -52,6 +62,11 @@ class Persona extends CI_Controller {
 	}
 
 	public function update() {
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = $this->input->get('id');
 
 		$this->load->model('aficion_model');
@@ -74,6 +89,11 @@ class Persona extends CI_Controller {
 
 	public function updatePost()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = $this->input->post('id');
 		$nombre = $this->input->post('nombre');
 		$dni = $this->input->post('dni');
@@ -97,6 +117,12 @@ class Persona extends CI_Controller {
 
 	// public function delete()
 	// {
+
+	//	if(!isRolValid('usuario')) {
+	//		//prg('error','No tienes permisos.');
+	//		show_404();
+	//	}
+
 	// 	$id = isset($_POST['id']) ? $_POST['id'] : null;
 
 	// 	if( $id != null ) {
@@ -118,6 +144,12 @@ class Persona extends CI_Controller {
 
 	public function deletePost()
 	{
+
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		//$id = isset($_POST['id']) ? $_POST['id'] : null;
 		$id = $this->input->post('id');
 
@@ -131,6 +163,44 @@ class Persona extends CI_Controller {
 			prg('error',$e->getMessage(),'persona');
 		}
 
+	}
+
+	public function login(){
+		frame($this,'login/index');
+	}
+
+	public function loginPost() {
+
+		$dni = $this->input->post('inputDni');
+		$pass = $this->input->post('inputPassword');
+
+		$this->load->model('persona_model');
+
+		try{
+			$persona = $this->persona_model->login($dni,$pass);
+
+			if(session_status() == PHP_SESSION_NONE) {
+    			session_start();
+    		}
+    		$_SESSION['_usuario'] = $persona;
+
+			redirect(base_url());
+		}
+		catch(Exception $e) {
+			//prg('error','Datos incorrectos','login');
+			prg('error',$e->getMessage(),'login');
+		}
+
+	}
+
+	public function logout(){
+		if(session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		if(isset($_SESSION['_usuario'])) {
+			unset($_SESSION['_usuario']);
+		}
+		prg('success', 'Hasta la próxima');
 	}
 
 

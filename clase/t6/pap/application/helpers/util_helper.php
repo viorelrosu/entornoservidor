@@ -97,4 +97,23 @@
     	header('Location:'. base_url().'mensaje');
     }
 
+    /**
+        @param rol a verificar. Puede ser "anonymous" o "usuario".
+        @return true si el rol coincide con el del usuario actual y false
+        en caso de que no coincide
+    */
+    function isRolValid($rol) {
+        if(session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $isValid = false;
+        if($rol == 'usuario' && isset($_SESSION['_usuario'])){
+            $isValid = true;
+        }
+        if($rol == 'anonymous'){
+            $isValid = true;
+        }
+        return $isValid;
+    }
+
 ?>

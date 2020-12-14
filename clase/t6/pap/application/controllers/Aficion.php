@@ -17,11 +17,22 @@ class Aficion extends CI_Controller {
 
 	public function create()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		frame($this,'aficion/create');
 	}
 
 	public function createPost()
 	{
+
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 		$this->load->model('aficion_model');
 
@@ -37,6 +48,11 @@ class Aficion extends CI_Controller {
 
 	public function delete()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 		try {
@@ -53,6 +69,11 @@ class Aficion extends CI_Controller {
 
 	public function deletePost()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 
 		try{
@@ -67,6 +88,12 @@ class Aficion extends CI_Controller {
 	}
 
 	public function update() {
+
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 		try{
@@ -81,6 +108,11 @@ class Aficion extends CI_Controller {
 
 	public function updatePost()
 	{
+		if(!isRolValid('usuario')) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
 		$id = isset($_POST['id']) ? $_POST['id'] : null;
 		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
 
