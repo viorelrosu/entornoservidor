@@ -13,8 +13,8 @@
 			      <th scope="col">País</th>
 			      <th scope="col">Personas</th>
 			      <?php if(isRolValid('usuario') or isRolValid('admin')):?>
-			      <th scope="col" class="text-right">Acción</th>
-			  <?php endif; ?>
+				      <th scope="col" class="text-right">Acción</th>
+				  <?php endif; ?>
 			    </tr>
 			  </thead>
 			  <tbody>
