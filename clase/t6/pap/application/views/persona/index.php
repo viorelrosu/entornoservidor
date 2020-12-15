@@ -2,7 +2,7 @@
 	<div class="col">
 		<h3>Listado Personas</h3>
 
-		<?php if(isRolValid('usuario')):?>
+		<?php if(isRolValid('usuario') or isRolValid('admin')):?>
 			<div class="text-right">
 				<a href="<?=base_url().'persona/create';?>" class="btn btn-primary">Crear</a>
 			</div>
@@ -12,11 +12,13 @@
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
+		      <th scope="col">Rol</th>
 		      <th scope="col">Persona</th>
 		      <th scope="col">DNI</th>
 		      <th scope="col">País</th>
 		      <th scope="col">Aficiones</th>
-		      <?php if(isRolValid('usuario')):?>
+		      
+		      <?php if(isRolValid('usuario') or isRolValid('admin')):?>
 			      <th scope="col" class="text-right">Acción</th>
 			  <?php endif; ?>
 		    </tr>
@@ -37,18 +39,22 @@
 		  	?>
 		  		<tr>
 		  			<td><?= $persona->id; ?></td>
+		  			<td><?= $persona->rol->nombre; ?></td>
 		  			<td><?= $persona->nombre; ?></td>
 		  			<td><?= $persona->dni; ?></td>
 		  			<td><?= (($persona->pais_nacimiento_id != null) ? $persona->fetchAs('pais')->pais_nacimiento->nombre : '--' ); ?></td>
 		  			<td><?= $htmlSharedAficiones; ?></td>
-		  			<?php if(isRolValid('usuario')):?>
+		  			<?php if(isRolValid('usuario') or isRolValid('admin')):?>
 			  			<td class="text-right" width="100">
 			  				<form action="" method="get" id="formAccion-<?=$persona->id;?>" >
 			  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
 			  				</form>
-
-			  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<?php if(isRolValid('usuario') or isRolValid('admin')):?>
+			  					<button class="btn btn-info btn-sm" onclick="accion('get',<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
+			  				<?php endif; ?>
+			  				<?php if(isRolValid('admin')):?>
 				  				<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $persona->id; ?>,'<?=base_url().'persona/delete'?>');"><i class="fas fa-trash"></i></button>
+				  			<?php endif; ?>
 			  			</td>
 			  		<?php endif; ?>
 		  		</tr>

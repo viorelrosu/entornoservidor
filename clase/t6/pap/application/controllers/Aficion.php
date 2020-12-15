@@ -17,7 +17,7 @@ class Aficion extends CI_Controller {
 
 	public function create()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -28,7 +28,7 @@ class Aficion extends CI_Controller {
 	public function createPost()
 	{
 
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -46,9 +46,48 @@ class Aficion extends CI_Controller {
 
 	}
 
+	public function update() {
+
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
+		$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+		try{
+			$this->load->model('aficion_model');
+			$aficion = $this->aficion_model->getBeanById($id);
+			$datos = [ 'aficion'=>$aficion ];
+			frame($this,'aficion/update',$datos);
+		} catch (Exception $e) {
+			prg('error', $e->getMessage(), 'aficion/index');
+		}
+	}
+
+	public function updatePost()
+	{
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
+			//prg('error','No tienes permisos.');
+			show_404();
+		}
+
+		$id = isset($_POST['id']) ? $_POST['id'] : null;
+		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+
+		try{
+			$this->load->model('aficion_model');
+			$this->aficion_model->update($id, $nombre);
+			prg('success', 'La afición ha sido modificado correctamente.', 'aficion/index');
+		} catch(Exception $e) {
+			prg('error', $e->getMessage(), 'aficion/index');
+		}
+
+	}
+
 	public function delete()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('admin')) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -69,7 +108,7 @@ class Aficion extends CI_Controller {
 
 	public function deletePost()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('admin')) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -82,45 +121,6 @@ class Aficion extends CI_Controller {
 			prg('success', 'La afición ha sido eliminado correctamente.', 'aficion/index');
 		}
 		catch(Exception $e) {
-			prg('error', $e->getMessage(), 'aficion/index');
-		}
-
-	}
-
-	public function update() {
-
-		if(!isRolValid('usuario')) {
-			//prg('error','No tienes permisos.');
-			show_404();
-		}
-
-		$id = isset($_GET['id']) ? $_GET['id'] : null;
-
-		try{
-			$this->load->model('aficion_model');
-			$aficion = $this->aficion_model->getBeanById($id);
-			$datos = [ 'aficion'=>$aficion ];
-			frame($this,'aficion/update',$datos);
-		} catch (Exception $e) {
-			prg('error', $e->getMessage(), 'aficion/index');
-		}
-	}
-
-	public function updatePost()
-	{
-		if(!isRolValid('usuario')) {
-			//prg('error','No tienes permisos.');
-			show_404();
-		}
-
-		$id = isset($_POST['id']) ? $_POST['id'] : null;
-		$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-
-		try{
-			$this->load->model('aficion_model');
-			$this->aficion_model->update($id, $nombre);
-			prg('success', 'La afición ha sido modificado correctamente.', 'aficion/index');
-		} catch(Exception $e) {
 			prg('error', $e->getMessage(), 'aficion/index');
 		}
 

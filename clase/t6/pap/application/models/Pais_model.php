@@ -14,7 +14,7 @@ class Pais_model extends CI_Model {
         $pais->nombre = $nombre;
         R::store($pais);
 
-        return true;
+        return $pais;
     }
 
     function update($id, $nombre){

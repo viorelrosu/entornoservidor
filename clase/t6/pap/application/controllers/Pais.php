@@ -16,7 +16,7 @@ class Pais extends CI_Controller {
 
 	public function create()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			prg('error','No tienes permisos.');
 		}
 		frame($this,'pais/create');
@@ -25,7 +25,7 @@ class Pais extends CI_Controller {
 	public function createPost()
 	{
 
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			prg('error','No tienes permisos.');
 		}
 
@@ -43,11 +43,11 @@ class Pais extends CI_Controller {
 	}
 
 	public function update() {
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			prg('error','No tienes permisos.');
 		}
 
-		$id = isset($_POST['id']) ? $_POST['id'] : null;
+		$id = isset($_GET['id']) ? $_GET['id'] : null;
 		try {
 			$this->load->model('pais_model');
 			$pais = $this->pais_model->getBeanById($id);
@@ -61,7 +61,7 @@ class Pais extends CI_Controller {
 	public function updatePost()
 	{
 
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			prg('error','No tienes permisos.');
 		}
 
@@ -106,7 +106,7 @@ class Pais extends CI_Controller {
 	public function deletePost()
 	{
 
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('admin')) {
 			prg('error','No tienes permisos.');
 		}
 

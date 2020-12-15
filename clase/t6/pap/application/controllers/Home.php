@@ -24,4 +24,15 @@ class Home extends CI_Controller {
 		// $this->load->view('home/index');
 		frame($this,'home/index');
 	}
+
+	public function init() {
+
+		$this->load->model('pais_model');
+		$pais = $this->pais_model->insert('España');
+
+		$this->load->model('persona_model');
+		$this->persona_model->insert('admin', 1, 'admin', $pais->id, [], 'admin');
+
+		redirect(base_url());
+	}
 }

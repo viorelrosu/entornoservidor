@@ -17,7 +17,7 @@ class Persona extends CI_Controller {
 
 	public function create()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -34,7 +34,7 @@ class Persona extends CI_Controller {
 
 	public function createPost()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -62,7 +62,7 @@ class Persona extends CI_Controller {
 	}
 
 	public function update() {
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -89,7 +89,7 @@ class Persona extends CI_Controller {
 
 	public function updatePost()
 	{
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('usuario') && !isRolValid('admin') ) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}
@@ -145,7 +145,7 @@ class Persona extends CI_Controller {
 	public function deletePost()
 	{
 
-		if(!isRolValid('usuario')) {
+		if(!isRolValid('admin')) {
 			//prg('error','No tienes permisos.');
 			show_404();
 		}

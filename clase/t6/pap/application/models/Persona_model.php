@@ -1,7 +1,7 @@
 <?php
 class Persona_model extends CI_Model {
 
-	function insert($nombre, $dni, $pass, $idPaisNacimiento, $idsAficiones=[]){
+	function insert($nombre, $dni, $pass, $idPaisNacimiento, $idsAficiones=[],$nombreRol='usuario'){
 
         if( $nombre == null and $dni == null and $idPais == null and $idsAficiones == null) {
             throw new Exception("El nombre, dni, país y aficiones no pueden ser null.");
@@ -22,6 +22,18 @@ class Persona_model extends CI_Model {
         $pais = R::load('pais',$idPaisNacimiento);
         $pais->alias('pais_nacimiento')->ownPersonaList[] = $bean;
 
+
+        $rol = R::findOne('rol','nombre=?',[$nombreRol]);
+
+        if($rol == null) {
+            $rol = R::dispense('rol');
+            $rol->nombre = $nombreRol;
+            R::store($rol);
+        }
+
+        $bean->rol = $rol;
+        R::store($bean);
+
         //para borrar en cascada
         //$pais->alias('pais_nacimiento')->xownPersonaList[] = $bean;
         R::store($pais);
@@ -35,6 +47,7 @@ class Persona_model extends CI_Model {
         endforeach;
 
     }
+
 
     function update($id, $nombre, $dni, $idPaisNacimiento, $idsAficiones=[]){
 

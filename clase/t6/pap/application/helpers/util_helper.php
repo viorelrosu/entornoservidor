@@ -107,7 +107,10 @@
             session_start();
         }
         $isValid = false;
-        if($rol == 'usuario' && isset($_SESSION['_usuario'])){
+        if($rol == 'usuario' && isset($_SESSION['_usuario']) && ($_SESSION['_usuario']->rol->nombre == 'usuario') ){
+            $isValid = true;
+        }
+        if($rol == 'admin' && isset($_SESSION['_usuario']) && ($_SESSION['_usuario']->rol->nombre == 'admin')){
             $isValid = true;
         }
         if($rol == 'anonymous'){
