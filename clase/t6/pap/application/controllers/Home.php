@@ -21,10 +21,16 @@ class Home extends CI_Controller {
 	{
 		//mklink /j rosuClaudiuViorel D:\workspacePHPVio\entornoservidor\clase\t6\pap
 
-		$this->output->delete_cache();
+		//$this->output->delete_cache();
 		// $this->load->helper('mensaje');
 		// $this->load->view('home/index');
-		frame($this,'home/index');
+
+		if(session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $rol = isset($_SESSION['_usuario']) ? $_SESSION['_usuario']->rol->nombre : 'anon';
+		frame($this,'home/home_'.$rol);
 	}
 
 	public function init() {
