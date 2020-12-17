@@ -5,7 +5,7 @@
 		<div class="text-right">
 			<a href="<?=base_url().'persona/create';?>" class="btn btn-primary">Crear</a>
 		</div>
-
+		<?php if(count($personas) > 0): ?>
 		<table class="table table-striped mt-5">
 		  <thead>
 		    <tr>
@@ -49,6 +49,12 @@
 		  	<?php endforeach; ?>
 		  </tbody>
 		</table>
+		<?php else: ?>
+			<div class="alert alert-info">
+				No hay personas dadas de alta<br/><br />
+				<a class="btn btn-primary" href="<?= base_url().'persona/create'; ?>">Dar de alta</a>
+			</div>
+		<?php endif;?>
 	</div>
 </div>
 <script>
