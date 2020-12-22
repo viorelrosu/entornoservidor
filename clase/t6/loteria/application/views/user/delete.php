@@ -1,19 +1,22 @@
 <div class="row">
-	<div class="col">
-		<h2>Dar de baja Persona</h2>
+	<div class="col-6 offset-3">
+		<h2>Dar de baja Usuario</h2>
 	</div>
 </div>
 <div class="row">
-	<div class="col">
+	<div class="col-6 offset-3">
 		<div class="alert alert-warning" role="alert">
-	  		¿Estás seguro de eliminar esta persona: <b><?=$persona->nombre; ?></b>?
-	  		<br /><hr /><button class="btn btn-danger" onclick="accion('post',<?= $persona->id; ?>,'<?=base_url().'persona/deletePost'?>');">Eliminar</button>
+	  		¿Estás seguro de eliminar este usuario: <b><?=$user->nombre; ?></b>?
+	  		<br /><hr /><button class="btn btn-danger" onclick="accion('post',<?= $user->id; ?>,'<?=base_url().'user/deletePost'?>');">Eliminar</button>
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-6 offset-3">
+		<?=volver('user'); ?>
+	</div>
+</div>
 
-<?=volver('persona'); ?>
-
-<form action="" method="post" id="formAccion-<?=$persona->id;?>" >
-	<input type="hidden" name="id" value="<?= $persona->id; ?>" />
+<form action="" method="post" id="formAccion-<?=$user->id;?>" >
+	<input type="hidden" name="id" value="<?= $user->id; ?>" />
 </form>

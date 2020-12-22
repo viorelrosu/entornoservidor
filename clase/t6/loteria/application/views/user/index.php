@@ -1,49 +1,40 @@
 <div class="row mt-5">
 	<div class="col">
-		<h3>Listado Personas</h3>
+		<h3>Listado Usuarios</h3>
 		<hr />
+		<?= getMsg($_msg);?>
 		<div class="text-right">
-			<a href="<?=base_url().'persona/create';?>" class="btn btn-primary">Crear</a>
+			<a href="<?=base_url().'user/register';?>" class="btn btn-primary">Crear</a>
 		</div>
-		<?php if(count($personas) > 0): ?>
+		<?php if(count($usuarios) > 0): ?>
 		<table class="table table-striped mt-5">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">Persona</th>
-		      <th scope="col">DNI</th>
-		      <th scope="col">País</th>
-		      <th scope="col">Aficiones</th>
+		      <th scope="col">Rol</th>
+		      <th scope="col">Usuario</th>
+		      <th scope="col">Email</th>
 		      <th scope="col" class="text-right">Acción</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  	<?php
-		  		foreach($personas as $persona):
-		  			//$sharedAficiones = $persona->sharedAficionList;
-		  			$ownAficionesGusta = $persona->ownGustaList;
-		  			//print_r($ownAficionesGusta);
-
-		  			if( count($ownAficionesGusta) == 0 ) {
-		  				$htmlSharedAficiones = '<span class="badge badge-pill badge-danger">&times;</span>';
-		  			} else {
-		  				// $htmlSharedAficiones = getBeansToStringByNombre($sharedAficiones);
-		  				$htmlSharedAficiones = getAficionesToStringByNombre($ownAficionesGusta);
-		  			}
+		  		$i=0;
+		  		foreach($usuarios as $usuario):
+		  			$i++;
 		  	?>
 		  		<tr>
-		  			<td><?= $persona->id; ?></td>
-		  			<td><?= $persona->nombre; ?></td>
-		  			<td><?= $persona->dni; ?></td>
-		  			<td><?= (($persona->pais_nacimiento_id != null) ? $persona->fetchAs('pais')->pais_nacimiento->nombre : '--' ); ?></td>
-		  			<td><?= $htmlSharedAficiones; ?></td>
+		  			<td><?= $i; ?></td>
+		  			<td><?= $usuario->rol->nombre; ?></td>
+		  			<td><?= $usuario->nombre; ?></td>
+		  			<td><?= $usuario->email; ?></td>
 		  			<td class="text-right" width="100">
-		  				<form action="" method="get" id="formAccion-<?=$persona->id;?>" >
-		  					<input type="hidden" name="id" value="<?= $persona->id; ?>">
+		  				<form action="" method="get" id="formAccion-<?=$usuario->id;?>" >
+		  					<input type="hidden" name="id" value="<?= $usuario->id; ?>">
 		  				</form>
 
-		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $persona->id; ?>,'<?=base_url().'persona/update'?>');"><i class="fas fa-edit"></i></button>
-			  			<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $persona->id; ?>,'<?=base_url().'persona/delete'?>');"><i class="fas fa-trash"></i></button>
+		  				<button class="btn btn-info btn-sm" onclick="accion('get',<?= $usuario->id; ?>,'<?=base_url().'user/update'?>');"><i class="fas fa-edit"></i></button>
+			  			<button class="btn btn-danger btn-sm" onclick="accion('post',<?= $usuario->id; ?>,'<?=base_url().'user/delete'?>');"><i class="fas fa-trash"></i></button>
 		  			</td>
 		  		</tr>
 		  	<?php endforeach; ?>
@@ -51,16 +42,9 @@
 		</table>
 		<?php else: ?>
 			<div class="alert alert-info">
-				No hay personas dadas de alta<br/><br />
-				<a class="btn btn-primary" href="<?= base_url().'persona/create'; ?>">Dar de alta</a>
+				No hay usuarios dados de alta<br/><br />
+				<a class="btn btn-primary" href="<?= base_url().'usuario/register'; ?>">Dar de alta</a>
 			</div>
 		<?php endif;?>
 	</div>
 </div>
-<script>
-	function accion(id, tipo) {
-		var form = document.getElementById('formAccion-'+id);
-		form.action=tipo;
-		form.submit();
-	}
-</script>

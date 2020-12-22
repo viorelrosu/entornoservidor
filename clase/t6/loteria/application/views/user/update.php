@@ -1,45 +1,36 @@
-		<div class="row">
-			<div class="col">
-				<h2>Modificar Persona</h2>
+<div class="row">
+	<div class="col-6 offset-3">
+		<h2>Modificar Datos</h2>
+		<hr>
+		<?= getMsg($_msg);?>
+	</div>
+</div>
+<div class="row">
+	<div class="col-6 offset-3">
+		<form action="<?=base_url().'user/updatePost'?>" method="post" >
+			<input type="hidden" name="id" value="<?= $usuario->id; ?>" />
+			<div class="form-group">
+				<label for="nombre" class="font-weight-bold">Nombre</label><br />
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce Nombre" value="<?= $usuario->nombre; ?>" />
 			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<form action="<?=base_url().'persona/updatePost'?>" method="post" >
-					<input type="hidden" name="id" value="<?= $persona->id; ?>" />
-					<div class="form-group">
-						<label for="nombre" class="font-weight-bold">Introduce Nombre</label><br />
-						<input type="text" class="form-control" id="nombre" name="nombre" value="<?= $persona->nombre; ?>" />
-					</div>
-					<div class="form-group">
-						<label for="dni" class="font-weight-bold">Introduce DNI</label><br />
-						<input type="text" class="form-control" id="dni" name="dni" value="<?= $persona->dni; ?>" />
-					</div>
-					<div class="form-group">
-						<label for="idPais" class="font-weight-bold">Selecciona País</label><br />
-						<select name="idPais" class="form-control">
-							<?php foreach($paises as $pais): ?>
-								<option value="<?=$pais->id?>" <?= ($persona->pais_nacimiento_id == $pais->id)? 'selected="selected"':''?>><?=$pais->nombre;?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="dni" class="font-weight-bold">Selecciona Aficiones</label><br />
-							<?php
-								foreach($aficiones as $aficion):
-								//$checked = (in_array($aficion->id, arrayAficionesToArrayIds($persona->ownGustaList) ) ) ? 'checked="checked"' : '';
-								$checked = ( personaTieneAficion($persona,$aficion) ) ? 'checked="checked"' : '';
-							?>
-								<input type="checkbox" name="idsAficiones[]" value="<?=$aficion->id?>" id="id-<?=$aficion->id?>" <?=$checked;?> /> <label for="id-<?=$aficion->id;?>"><?=$aficion->nombre?></label><br />
-							<?php endforeach; ?>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<input type="submit" value="Guardar" class="btn btn-primary"/>
-						</div>
-					</div>
-				</form>
+			<div class="form-group">
+				<label for="email" class="font-weight-bold">Email</label><br />
+				<input type="text" class="form-control" id="email" name="email" placeholder="Introduce Email" value="<?= $usuario->email; ?>" />
 			</div>
-		</div>
-
-		<?=volver('persona');?>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<input type="submit" value="Guardar" class="btn btn-primary"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-6 offset-3">
+		<?php if( isRolValid('admin') ):?>
+			<?=volver('user');?>
+		<?php else: ?>
+			<?=volver('home');?>
+		<?php endif; ?>
+	</div>
+</div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Aplicación Code Igniter + RedBeanPHP + Bootstrap</title>
+	<title><?=isset($_head['titulo']) ? 'App Lotería - ' . $_head['titulo'] : 'App Lotería'; ?></title>
 	<link href="<?=base_url().'assets/css/bootstrap.min.css'?>" rel="stylesheet">
 	<link href="<?=base_url().'assets/css/all.css'?>" rel="stylesheet">
 
