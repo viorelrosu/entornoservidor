@@ -6,8 +6,8 @@
 <div class="row">
 	<div class="col-6 offset-3">
 		<div class="alert alert-warning" role="alert">
-	  		¿Estás seguro de eliminar este boleto: <b><?=$boleto->numero; ?></b>?
-	  		<br /><hr /><button class="btn btn-danger" onclick="accion('post',<?= $boleto->id; ?>,'<?=base_url().'boleto/deletePost'?>');">Eliminar</button>
+	  		¿Estás seguro de eliminar este boleto: <b><?=$participacion->boleto->numero; ?></b>?
+	  		<br /><hr /><button class="btn btn-danger" onclick="accion('post',<?= $participacion->id; ?>,'<?=base_url().'boleto/deletePost'?>');">Eliminar</button>
 		</div>
 	</div>
 </div>
@@ -18,6 +18,6 @@
 	</div>
 </div>
 
-<form action="" method="post" id="formAccion-<?=$boleto->id;?>" >
-	<input type="hidden" name="id" value="<?= $boleto->id; ?>" />
+<form action="" method="post" id="formAccion-<?=$participacion->id;?>" >
+	<input type="hidden" name="id" value="<?= $participacion->id; ?>" />
 </form>

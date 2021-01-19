@@ -1,9 +1,9 @@
 <?php
 class Boleto_model extends CI_Model {
 
-	function insert($numero, $participacion, $idUser){
+	function insert($numero, $cantidad, $idUser){
 
-        if( $numero == null or $participacion == null or $idUser == null ) {
+        if( $numero == null or $cantidad == null or $idUser == null ) {
             throw new Exception("Los datos no pueden ser null.");
         }
 
@@ -11,75 +11,94 @@ class Boleto_model extends CI_Model {
             throw new Exception("El numero (".$numero.") es duplicado.");
         }
 
-        if( $participacion < 1 ) {
+        if( $cantidad < 1 ) {
             throw new Exception("La participación no puede ser menor de 1.");
         }
 
         $boleto = R::dispense('boleto');
         $boleto->numero = $numero;
-        $boleto->participacion = $participacion;
         R::store($boleto);
 
+        $participacion = R::dispense('participacion');
+        $participacion->cantidad = $cantidad;
+        $participacion->propietario = true;
+        
         $user = R::load('user',$idUser);
-        $user->xownBoletoList[] = $boleto;
+        // $participacion->user = $user;
+
+        // $participacion->boleto = $boleto;
+
+        R::store($participacion);
+
+        
+        $user->xownParticipacionList[] = $participacion;
         R::store($user);
+
+        $boleto->xownParticipacionList[] = $participacion;
+        R::store($boleto);
+
 
     }
 
-    function update($id, $numero, $participacion, $idUser){
+    function update($id, $numero, $cantidad, $idUser){
 
-        if( $id == null or $numero == null or $participacion == null or $idUser == null) {
+        if( $id == null or $numero == null or $cantidad == null or $idUser == null) {
             throw new Exception("Los datos no pueden ser null.");
         }
 
-        if ($this->getBeanByNumeroAndNotId($numero,$id) != null ) {
-            throw new Exception("El número (". $numero .") es duplicado.");
-        }
-
-        if( $participacion < 1 ) {
+        if( $cantidad < 1 ) {
             throw new Exception("La participación no puede ser menor de 1.");
         }
 
-        $boleto = R::load('boleto',$id);
-        $boleto->user = null;
+        $participacion = R::load('participacion', $id);
+
+        if ($this->getBeanByNumeroAndNotId($numero,$participacion->boleto_id) != null ) {
+            throw new Exception("El número (". $numero .") es duplicado.");
+        }
+
+        $participacion->cantidad = $cantidad;
+        $participacion->user = null;
+        R::store($participacion);
+
+        $boleto = R::load('boleto',$participacion->boleto_id);
         $boleto->numero = $numero;
-        $boleto->participacion = $participacion;
         R::store($boleto);
 
         $user = R::load('user',$idUser);
-        $user->xownBoletoList[] = $boleto;
+        $user->xownParticipacionList[] = $participacion;
         R::store($user);
-
     }
 
-    function intercambio($id, $idUsuario, $participacion){
+    function intercambio($id, $idUsuario, $cantidad){
 
-        if( $id == null or $idUsuario == null or $participacion == null) {
+        if( $id == null or $idUsuario == null or $cantidad == null) {
             throw new Exception("Los datos no pueden ser nulos.");
         }
 
-        if( ($participacion < 1) or ($participacion > 15) ) {
+        if( ($cantidad < 1) or ($cantidad > 15) ) {
             throw new Exception("La participación no puede ser menor de 1 y mayor de 15.");
         }
 
-        $boleto = R::load('boleto',$id);
-        $boleto->participacion -= $participacion;
-        R::store($boleto);
+        $participacion = R::load('participacion',$id);
+        $participacion->cantidad -= $cantidad;
+        R::store($participacion);
 
-        $intercambio = $this->getIntercambioByBoletoAndUsuarioId($id, $idUsuario);
+        $intercambio = $this->getIntercambioByBoletoAndUsuarioId($participacion->boleto_id, $idUsuario);
         if($intercambio) {
-            $intercambio->participacion += $participacion;
+            $intercambio->cantidad += $cantidad;
             R::store($intercambio);
         } else {
-            $intercambio = R::dispense('intercambio');
-            $intercambio->participacion = $participacion;
+            $intercambio = R::dispense('participacion');
+            $intercambio->cantidad = $cantidad;
+            $intercambio->propietario = false;
             R::store($intercambio);
 
-            $boleto->xownIntercambioList[] = $intercambio;
+            $boleto = R::load('boleto', $participacion->boleto_id);
+            $boleto->xownParticipacionList[] = $intercambio;
             R::store($boleto);
 
             $user = R::load('user',$idUsuario);
-            $user->xownIntercambioList[] = $intercambio;
+            $user->xownParticipacionList[] = $intercambio;
             R::store($user);
         }
 
@@ -87,15 +106,33 @@ class Boleto_model extends CI_Model {
 
     }
 
-    function deleteById($id){
+    function deleteBoletoById($id){
         if( $id == null) {
             throw new Exception('No se han podido cargar los datos.');
         }
         R::trash(R::load('boleto',$id));
     }
 
+    function deleteParticipacionesByUser($user){
+        foreach($user->ownParticipacionList as $participacion) {
+            if($participacion->propietario){
+                $this->deleteBoletoById($participacion->boleto_id);
+            } else {
+                $this->deleteParticipacion($participacion);
+            }
+        }
+    }
+
     function delete($bean){
         R::trash($bean);
+    }
+    function deleteParticipacion($participacion){
+
+        $participacionPrincipal = R::findOne('participacion','propietario=1 and boleto_id = ?', [$participacion->boleto_id]);
+        $participacionPrincipal->cantidad += $participacion->cantidad;
+        R::store($participacionPrincipal);
+
+        R::trash($participacion);
     }
 
     function getById($id){
@@ -103,6 +140,13 @@ class Boleto_model extends CI_Model {
             throw new Exception('No se han podido cargar los datos.');
         }
         return R::load('boleto',$id);
+    }
+
+    function getParticipacionById($id){
+        if( $id == null) {
+            throw new Exception('No se han podido cargar los datos.');
+        }
+        return R::load('participacion',$id);
     }
 
     function getByNumero($numero){
@@ -113,21 +157,21 @@ class Boleto_model extends CI_Model {
         return R::findOne('boleto','numero=? and id <> ?', [$numero,$id]);
     }
 
-    function getAllByUserId($userID){
+    function getAllParticipacionesByUserId($userID){
         $user = R::load('user',$userID);
-        return $user->ownBoletoList;
+        return $user->ownParticipacionList;
     }
 
     function getIntercambioByBoletoAndUsuarioId($id, $idUsuario){
-        return R::findOne('intercambio','boleto_id=? and user_id = ?', [$id,$idUsuario]);
+        return R::findOne('participacion','boleto_id=? and user_id = ? and propietario = 0', [$id,$idUsuario]);
     }
 
     function getAll(){
         return R::findAll('boleto');
     }
 
-    function getAllIntercambios(){
-        return R::findAll('intercambio');
+    function getAllParticipaciones(){
+        return R::findAll('participacion');
     }
 }
 

@@ -179,7 +179,12 @@ class User extends CI_Controller {
 		try {
 			$this->load->model('user_model');
 			$user = $this->user_model->getBeanById($id);
+
+			$this->load->model('boleto_model');
+			$this->boleto_model->deleteParticipacionesByUser($user);
+
 			$this->user_model->delete($user);
+
 			$mensaje = 'El usuario <b>'.$user->nombre.'</b> ha sido eliminado correctamente.';
 			prgBack('success',$mensaje,'user');
 		} catch(Exception $e) {

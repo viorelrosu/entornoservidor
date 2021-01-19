@@ -18,10 +18,9 @@ class Boleto extends CI_Controller {
 
 		$this->load->model('boleto_model');
 		if(isRolValid('admin')){
-			$datos['boletos'] = $this->boleto_model->getAll();
-			$datos['intercambios'] = $this->boleto_model->getAllIntercambios();
+			$datos['participaciones'] = $this->boleto_model->getAllParticipaciones();
 		} else {
-			$datos['boletos'] = $this->boleto_model->getAllByUserId($user->id);
+			$datos['participaciones'] = $this->boleto_model->getAllParticipacionesByUserId($user->id);
 		}
 
 		frame($this,'boleto/index',$datos);
@@ -51,7 +50,7 @@ class Boleto extends CI_Controller {
 		}
 
 		$numero = $this->input->post('numero');
-		$participacion = $this->input->post('participacion');
+		$cantidad = $this->input->post('cantidad');
 
 		if(isRolValid('admin')) {
 			$idUser = $this->input->post('idUsuario');
@@ -62,7 +61,7 @@ class Boleto extends CI_Controller {
 		try {
 
 			$this->load->model('boleto_model');
-			$this->boleto_model->insert($numero, $participacion, $idUser);
+			$this->boleto_model->insert($numero, $cantidad, $idUser);
 			$mensaje = 'El boleto <b>'. $numero .'</b> se ha registrado correctamente.';
 			prgBack('success',$mensaje,'boleto');
 
@@ -85,7 +84,7 @@ class Boleto extends CI_Controller {
 
 		$id = $this->input->get('id');
 		$this->load->model('boleto_model');
-		$datos['boleto'] = $this->boleto_model->getById($id);
+		$datos['participacion'] = $this->boleto_model->getParticipacionById($id);
 
 		if(isRolValid('admin')){
 			$this->load->model('user_model');
@@ -103,7 +102,7 @@ class Boleto extends CI_Controller {
 
 		$id = $this->input->post('id');
 		$numero = $this->input->post('numero');
-		$participacion = $this->input->post('participacion');
+		$cantidad = $this->input->post('cantidad');
 
 		if(isRolValid('admin')) {
 			$idUser = $this->input->post('idUsuario');
@@ -114,7 +113,7 @@ class Boleto extends CI_Controller {
 		try {
 
 			$this->load->model('boleto_model');
-			$this->boleto_model->update($id, $numero, $participacion, $idUser);
+			$this->boleto_model->update($id, $numero, $cantidad, $idUser);
 			$mensaje = 'El boleto <b>'. $numero .'</b> se ha modificado correctamente.';
 			prgBack('success',$mensaje,'boleto');
 
@@ -139,7 +138,7 @@ class Boleto extends CI_Controller {
 
 		try {
 			$this->load->model('boleto_model');
-			$datos['boleto'] = $this->boleto_model->getById($id);
+			$datos['participacion'] = $this->boleto_model->getParticipacionById($id);
 			frame($this,'boleto/delete',$datos);
 		} catch(Eception $e) {
 			prgBack('danger',$e->getMessage(),'boleto');
@@ -158,9 +157,15 @@ class Boleto extends CI_Controller {
 
 		try {
 			$this->load->model('boleto_model');
-			$boleto = $this->boleto_model->getById($id);
-			$this->boleto_model->delete($boleto);
-			$mensaje = 'El boleto <b>'.$boleto->numero.'</b> ha sido eliminado correctamente.';
+			$participacion = $this->boleto_model->getParticipacionById($id);
+			if($participacion->propietario){
+				$this->boleto_model->deleteBoletoById($participacion->boleto_id);
+				$mensaje = 'El boleto <b>'.$participacion->boleto->numero.'</b> ha sido eliminado correctamente.';
+			} else {
+				$this->boleto_model->deleteParticipacion($participacion);
+				$mensaje = 'La participación del número <b>'.$participacion->boleto->numero.'</b> ha sido eliminado correctamente.';
+			}
+
 			prgBack('success',$mensaje,'boleto');
 		} catch(Exception $e) {
 			prgBack('danger',$e->getMessage(),'boleto');
@@ -176,13 +181,13 @@ class Boleto extends CI_Controller {
 
 		$id = $this->input->get('id');
 		$this->load->model('boleto_model');
-		$datos['boleto'] = $this->boleto_model->getById($id);
+		$datos['participacion'] = $this->boleto_model->getParticipacionById($id);
 
 		$this->load->model('user_model');
-		$datos['usuarios'] = $this->user_model->getAllByRol('usuario');
+		$datos['usuarios'] = $this->user_model->getAllByRolAndNotId('usuario', $datos['participacion']->user_id);
 
-		$user = getUserSession();
-		$datos['user'] = $this->user_model->getBeanById($user->id);
+		// $user = getUserSession();
+		// $datos['user'] = $this->user_model->getBeanById($user->id);
 
 		frame($this,'boleto/intercambio', $datos);
 	}
@@ -190,14 +195,14 @@ class Boleto extends CI_Controller {
 	function intercambioPost(){
 		$id = $this->input->post('id');
 		$idUsuario = $this->input->post('idUsuario');
-		$participacion = $this->input->post('participacion');
+		$cantidad = $this->input->post('cantidad');
 
 		try {
 
 			$this->load->model('boleto_model');
-			$intercambio = $this->boleto_model->intercambio($id, $idUsuario, $participacion);
+			$intercambio = $this->boleto_model->intercambio($id, $idUsuario, $cantidad);
 
-			$mensaje = 'La participación de <b>'. $intercambio->user->nombre.'</b> con la cantidad de <b>'. $intercambio->participacion .' €</b> se ha registrado correctamente.';
+			$mensaje = 'La participación de <b>'. $intercambio->user->nombre.'</b> con la cantidad de <b>'. $intercambio->cantidad .' €</b> se ha registrado correctamente.';
 			prgBack('success',$mensaje,'boleto');
 
 		} catch(Exception $e) {

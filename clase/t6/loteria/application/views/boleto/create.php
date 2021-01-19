@@ -25,8 +25,8 @@
 						<input type="number" min="1" class="form-control" id="numero" name="numero" value="" placeholder="Introduce número"/>
 					</div>
 					<div class="form-group">
-						<label for="participacion" class="font-weight-bold">Participación (€)</label><br />
-						<input type="number" class="form-control" id="participacion" name="participacion" value="" placeholder="Introduce participación" />
+						<label for="cantidad" class="font-weight-bold">Participación (€)</label><br />
+						<input type="number" class="form-control" id="cantidad" name="cantidad" value="" placeholder="Introduce participación" />
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">

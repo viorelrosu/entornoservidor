@@ -48,7 +48,7 @@ class User_model extends CI_Model {
 
     }
 
-     function login($email,$pass){
+    function login($email,$pass){
         $user = $this->getBeanByEmail($email);
         if($user == null) {
             throw new Exception("Usuario no existe");
@@ -100,9 +100,14 @@ class User_model extends CI_Model {
         return R::findOne('user','email=? and id <> ?', [$email,$id]);
     }
 
+    function getAllByRolAndNotId($nombreRol, $id){
+        $rol = R::findOne('rol','nombre=?',[$nombreRol]);
+        return R::findAll('user','rol_id = ? and id <> ?', [$rol->id, $id]);
+    }
+
     function getAllByRol($nombreRol){
         $rol = R::findOne('rol','nombre=?',[$nombreRol]);
-        return R::findAll('user','rol_id = ' . $rol->id);
+        return R::findAll('user','rol_id = ?', [$rol->id]);
     }
 
     function getAll(){
